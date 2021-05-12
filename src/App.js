@@ -1,23 +1,33 @@
+import React from "react";
+import {Route, Switch} from 'react-router';
+import {BrowserRouter as Router} from 'react-router-dom';
 import './App.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
+import Home from './pages/home/home';
+import Login from './pages/login/login';
+import AuthService from "./services/auth";
 
-        <p>
-         This is login
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+function App() {
+  // Initialize Firebase
+  window.authService = window.authService ? window.authService : new AuthService();
+
+
+  return (
+    <Router>
+    <div className="App">
+      <Switch>
+      <Route exact path="/" render={()=>(
+
+              <Login/>
+              )}/>
+        <Route path="/home" render={()=>(
+          <Home/>
+          )} />
+      </Switch>
     </div>
+  </Router>
+
   );
 }
 

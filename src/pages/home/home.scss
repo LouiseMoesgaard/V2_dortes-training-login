@@ -1,0 +1,30 @@
+@import '../../styles/base.scss';
+
+#home{
+    @include page-padding-mobile;
+
+
+
+    #searchbar{
+        width: 200px;
+        height: 40px;
+        left: 13px;
+        top: 820px;
+        margin-right: 10px;
+
+        background: #F9F8F7;
+        opacity: 0.7;
+        border: 2px solid #C6CDCD;
+        box-sizing: border-box;
+    }
+
+    #submit{
+        width: 45px;
+        height: 40px;
+        left: 286px;
+        background-color: $call-to-action-color;
+        
+
+    }
+
+}

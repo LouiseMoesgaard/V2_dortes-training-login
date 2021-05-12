@@ -1,0 +1,29 @@
+a,
+label {
+  font-family: $h1-font;
+  line-height: 23px;
+  margin: 5px 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+
+h1,
+h2 {
+ font-family: $h1-font;
+ font-size: 1.25rem;
+  line-height: 30px;
+  width: fit-content;
+  border-bottom: 3px solid;
+  border-image: linear-gradient(to right, transparent 10%, $call-to-action-color 10%) 2;
+}
+
+h3 {
+  /* font-family: $main-font; */
+  line-height: 23px;
+  margin: 20px 0;
+}
+
+a {
+  display: inline-block;
+}

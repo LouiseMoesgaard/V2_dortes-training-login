@@ -1,0 +1,66 @@
+@import '../../styles/base.scss';
+
+#login{
+    @include page-padding-mobile;
+
+    form{
+        grid-template-rows: 50% 50%;
+        margin-top: 45px;
+        display: flex;
+        flex-direction: column;
+
+        input:not([type="submit"]){
+            margin-bottom: 15px;
+            width: 100%;
+            height: 40px;
+
+            background: #F9F8F7;
+            border: 2px solid #C6CDCD;
+            box-sizing: border-box;
+
+        }
+
+        input[type="submit"]{
+            width: 155px;
+            height: 40px;
+            left: 176px;
+            margin-top: 15px;
+
+            background: $call-to-action-color;
+            border: 1px solid $call-to-action-color;
+            box-sizing: border-box;
+
+            font-family: $h1-font;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            place-self: flex-end;
+            color: $font-white-color;    
+        }
+
+        .lostPassword{
+            font-family: $h1-font;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            place-self: flex-end;
+            a{
+                margin-left: 10px;
+                color:$call-to-action-color;
+                text-decoration: none; 
+            }
+        
+        }
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    #login{
+       /*  @include page-padding-tablet; */
+
+    display: grid;
+    grid-template-rows: 50% 50%;
+
+  }
+}
+

@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.hide {
+    display: none!important;
+}
+
+/** Fonts **/
+
+$h1-font: 'Merriweather';
+
+$p-font: #034D5A;
+
+
+/** Colors **/
+
+$background-color: #034D5A;
+$font-white-color: #FEF5F4;
+$font-black-color: #45494B;
+$call-to-action-color: #FD9C50;
+
+/*** Mixins **/
+
+@mixin page-padding-mobile {
+    padding: 105px 40px 0 40px;   
+}
