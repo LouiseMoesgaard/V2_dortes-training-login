@@ -1,0 +1,28 @@
+@import '../../styles/base.scss';
+
+button{
+    cursor: pointer;
+}
+
+.base{
+    width: 155px;
+    height: 40px;
+    left: 176px;
+    margin-top: 15px;
+
+    background: $call-to-action-color;
+    border: 1px solid $call-to-action-color;
+    box-sizing: border-box;
+
+    font-family: $h1-font;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    place-self: flex-end;
+    color: $font-white-color;    
+}
+
+.link{
+    background: transparent;
+    border: none;
+    color:$call-to-action-color;
+}

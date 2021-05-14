@@ -27,3 +27,16 @@ h3 {
 a {
   display: inline-block;
 }
+
+.alert {
+  color: $alert-color
+}
+
+p, 
+li{
+  font-family: $p-font;
+  line-height: 23px;
+  margin: 5px 0;
+  font-size: 0.8rem;
+  
+}

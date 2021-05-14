@@ -15,7 +15,7 @@ body{
 
 $h1-font: 'Merriweather';
 
-$p-font: #034D5A;
+$p-font:'raleway';
 
 
 /** Colors **/
@@ -24,9 +24,22 @@ $background-color: #034D5A;
 $font-white-color: #FEF5F4;
 $font-black-color: #45494B;
 $call-to-action-color: #FD9C50;
+$alert-color: #ff6262!important;
 
 /*** Mixins **/
 
 @mixin page-padding-mobile {
-    padding: 105px 40px 0 40px;   
+    padding: 105px 35px 0 35px;   
+}
+
+@mixin page-padding-tablet{
+    padding: 105px 60px 0 60px;   
+}
+
+@mixin page-padding-desktop-mini{
+    padding: 120px 15% 0 15%;   
+}
+
+@mixin page-padding-desktop-large{
+    padding: 105px 30% 0 30%;   
 }
