@@ -5,13 +5,15 @@ label {
   margin: 5px 0;
   font-size: 0.8rem;
   text-transform: uppercase;
+  text-decoration: none;
 }
 
 
 h1,
 h2 {
- font-family: $h1-font;
- font-size: 1.25rem;
+  font-family: $h1-font;
+  font-size: 1.25rem;
+  font-weight: lighter;
   line-height: 30px;
   width: fit-content;
   border-bottom: 3px solid;

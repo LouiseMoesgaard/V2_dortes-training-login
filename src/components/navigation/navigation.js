@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
-
+import {Link} from 'react-router-dom';
+import Button from '../button/button';
 import './navigation.scss';
 
 function Navigation(props) {
@@ -13,7 +14,7 @@ function Navigation(props) {
                 </div>
 
         
-                <div className={`burger ${props.burgerColor? props.burgerColor: 'burger-white'}`} onClick={()=>setmenuHidden(!menuHidden)}>
+                <div className={`burger ${props.burgerColor? props.burgerColor: 'burger-white'} ${menuHidden? '' : 'close'}`} onClick={()=>setmenuHidden(!menuHidden)}>
                     <div className="line"></div>
                     <div className="line"></div>
                     <div className="line"></div>
@@ -21,10 +22,10 @@ function Navigation(props) {
 
 
                 <div className={`menu ${menuHidden ? "hide" : ""}`}>
-                        <a className="active">Kategorioversigt</a>
-                        <a>Gemte øvelser</a>
-                        <a>Log ud</a>
-                        <div className="settings"></div>
+                        <Link to="/" className="active">Kategorioversigt</Link>
+                        <Link>Gemte øvelser</Link>
+                        <Button className="link" value="Log ud"/>
+                        <Button className="link"></Button>
                 </div>
         </nav>
     )

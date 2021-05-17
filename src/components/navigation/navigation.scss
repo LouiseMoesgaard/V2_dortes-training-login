@@ -5,9 +5,9 @@
 nav {
     position: fixed;
     top: 0;
-    height: 101px;
+    height: 69px;
     width: 100%;
-    padding: 0 35px 0 35px;
+    padding: 25px 35px 0 35px;
     z-index: 5;
 
     .burger{
@@ -16,12 +16,30 @@ nav {
         display: inline-block;
         position: fixed;
         right: 35px;
-        top: 40px;
         .line {
-            height: 4px;
+            height: 3px;
             background-color: $font-white-color;
+            transform-origin: center;
+            transition: transform 0.3s;
             &:nth-child(2n){
                 margin: 5px 0 5px 0;
+            }
+        }
+
+        &.close {
+            .line {
+                position: absolute;
+                top: 8px;
+                width: 100%;
+            }
+            .line:first-child {
+                transform: rotate(-45deg);
+            }
+            .line:nth-child(2n) {
+                display: none;
+            }
+            .line:last-child {
+                transform: rotate(45deg);
             }
         }
     }
@@ -32,7 +50,7 @@ nav {
         position: fixed;
         right: 0;
         width: 100%;
-        top: 100px;
+        top: 68px;
         padding: 0 35px 0 35px;
         background-color: $background-color;
 
@@ -40,15 +58,24 @@ nav {
             position: relative;
             display: block;
             color: $font-white-color;
-            font-size: 1.25rem;
             line-height: 75px;
             width: max-content;
         }
 
+        .link {
+            position: relative;
+            display: block;
+            color: $font-white-color;
+            line-height: 75px;
+            font-family: $h1-font;
+            line-height: 23px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
         .active {
             border-bottom: 3px solid;  
-            line-height: 50px;
-            margin-bottom: 22px;          
+            line-height: 50px;         
             border-image: linear-gradient(to right, transparent 10%, $call-to-action-color 10%) 2;
         }
     

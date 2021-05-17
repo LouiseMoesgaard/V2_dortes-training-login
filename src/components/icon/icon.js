@@ -13,7 +13,7 @@ function Icon (props) {
       }
 
     return (
-        <span className={`icon ${props.icon}`} onClick={(e)=>props.onClick(e)} onKeyDown={handleKeyDown} tabIndex="1">
+        <span className={`icon ${props.icon}`} onClick={(e)=>props.onClick(e)} onKeyDown={(e)=>handleKeyDown(e)} tabIndex="1">
             <img src={ICON[props.icon].icon} alt={ICON[props.icon].alt}></img>
         </span>
 

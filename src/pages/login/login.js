@@ -47,12 +47,16 @@ return(
     <div id="login">
 
         <Header title="Log ind"/>
-        <p> 
-            Log ind og få adgang til din personlige favorittræning og gør det hurtigt og nemt for dig, at træne på DIN måde!
-            Spar på stressen og den travle hverdag og vælg selv hvor og hvornår. 
-            <br/> 
-            <br/> 
-            Herinde finder du bl.a:
+        <div className="bluebox">
+
+            <p> 
+                Log ind og få adgang til din personlige favorittræning og gør det hurtigt og nemt for dig, at træne på DIN måde!
+                Spar på stressen og den travle hverdag og vælg selv hvor og hvornår. 
+                <br/> 
+                <br/> 
+                Herinde finder du bl.a:
+            </p>
+
             <ul>
                 <li>
                 Kategorier og øvelser til enhver smag
@@ -64,7 +68,8 @@ return(
                 mulighed for at gemme dine ynglingsøvelser
                 </li>
             </ul>
-        </p>
+
+        </div>
         <form onSubmit={handleSubmit}>
         {
             loginError? <p className="alert">E-mail eller password er forkert.</p>: null
@@ -83,7 +88,6 @@ return(
                 <Button className="link" onClick={(e)=>setShowReset(true)} value="Klik her"/>
             </p>
         </form> 
-
             <Modal visible={showReset} onClose={closeModal} title="nulstil password?">
                 <p>Indtast din e-mail herunder, så sender vi dig et link til at nustille dit password</p>
                 <form onSubmit={resetPassword}>
