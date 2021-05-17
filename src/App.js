@@ -28,10 +28,10 @@ function App() {
   }
 
   function getExerciseList(categoryId){
-    const choosenCategory = categories.filter(elm => elm.id == categoryId);
-    console.log("choosenCategory is: ", choosenCategory[0].title.rendered);
+    const chosenCategory = categories.filter(elm => elm.id == categoryId);
+    console.log("choosenCategory is: ", chosenCategory[0].title.rendered);
 
-    const exerciseList = choosenCategory[0].exercise.map(elm =>{
+    const exerciseList = chosenCategory[0].exercise.map(elm =>{
       const obj = {
         title : elm.post_title
       }
@@ -41,7 +41,7 @@ function App() {
   console.log("exerciseList is: ", exerciseList);
   }
 
-  // console.log("categoryId is: ", categoryId);
+  
 
   return (
     <Router>
