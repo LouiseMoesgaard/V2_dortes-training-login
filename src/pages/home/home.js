@@ -1,13 +1,20 @@
 import React from 'react';
 import Navigation from '../../components/navigation/navigation.js';
-import Header from '../../components/header/header'
+import Header from '../../components/header/header';
+import Category from '../../components/category/Category';
 
 import './home.scss';
 
 
-function home() {
+function home(props) {
 
-
+    const categoriesArray = props.categories.map((elm) =>{
+        const obj = {
+            id: elm.id,
+            title: elm.title.rendered
+        }
+        return obj;
+    })
    /*  function searching(studentArray) {
 
         let searchBar = document.querySelector('#searchbar');
@@ -29,15 +36,26 @@ return(
     <div id="home">
 
         <Header title="Velkommen til din online træning, [brugernavn]"/>
-        <p> 
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Nam tempor egestas mi vitae tempor. Nulla vitae massa iaculis, fringilla felis eu, convallis erat.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor egestas mi vitae tempor. 
-            Nulla vitae massa iaculis, fringilla felis eu, convallis erat. 
-        </p>
 
-        <input id="searchbar" placeholder="Søg i kategorier"/>
-        <input id="submit" type="submit" value="søg" />
+        <div className="intro">
+            <p> 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Nam tempor egestas mi vitae tempor. Nulla vitae massa iaculis, fringilla felis eu, convallis erat.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor egestas mi vitae tempor. 
+                Nulla vitae massa iaculis, fringilla felis eu, convallis erat. 
+            </p>
+
+            <input id="searchbar" placeholder="Søg i kategorier"/>
+            <input id="submit" type="submit" value="søg" />
+        </div>
+
+        <div className="categoryList">
+            {categoriesArray.map((item, i) => {
+                 return (<Category key={i} {...item} updateCategory = {props.updateCategory}/> );
+                 
+             })}
+            </div>
+    
     </div>
 
 </>

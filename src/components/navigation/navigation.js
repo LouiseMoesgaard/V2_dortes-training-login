@@ -22,7 +22,7 @@ function Navigation(props) {
 
 
                 <div className={`menu ${menuHidden ? "hide" : ""}`}>
-                        <Link to="/" className="active">Kategorioversigt</Link>
+                        <Link to="/categoryList" className="active">CategoryList</Link>
                         <Link>Gemte øvelser</Link>
                         <Button className="link" value="Log ud"/>
                         <Button className="link"></Button>
