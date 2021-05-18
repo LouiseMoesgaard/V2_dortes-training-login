@@ -23,7 +23,7 @@ class AuthService {
     this.auth.onAuthStateChanged(user=> {
       if(user) {
         if(window.location.pathname === "/") {
-          window.location.href = "/home";
+          window.location.href = "/categories";
         }
       } else {
           if(window.location.pathname !== "/") {

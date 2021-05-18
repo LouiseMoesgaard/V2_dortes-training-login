@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import Header from '../../components/header/header'
 import Modal from '../../components/modal/modal';
 import Button from '../../components/button/button';
-
+import Wordpress from '../../services/wordpress';
 import './login.scss'
 
 
@@ -12,8 +12,15 @@ function Login() {
     const [showReset, setShowReset] = useState(false);
     const [loginError, setLoginError] = useState(false);
     const [resetError, setResetError] = useState(false);
+    const [post, setPost] = useState(null);
+    
 
-    React.useEffect(()=>console.log(showReset))
+    React.useEffect(()=>{
+        Wordpress.getpost(250).then((post)=>{
+            setPost(post);
+        });
+        
+    },[])
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -43,33 +50,12 @@ function Login() {
 
 
 return(
-
+    post?
     <div id="login">
 
         <Header title="Log ind"/>
-        <div className="bluebox">
-
-            <p> 
-                Log ind og få adgang til din personlige favorittræning og gør det hurtigt og nemt for dig, at træne på DIN måde!
-                Spar på stressen og den travle hverdag og vælg selv hvor og hvornår. 
-                <br/> 
-                <br/> 
-                Herinde finder du bl.a:
-            </p>
-
-            <ul>
-                <li>
-                Kategorier og øvelser til enhver smag
-                </li>
-                <li>
-                Yoga- og træningsvideoer på varierende tider.
-                </li>
-                <li>
-                mulighed for at gemme dine ynglingsøvelser
-                </li>
-            </ul>
-
-        </div>
+        <div className="bluebox" dangerouslySetInnerHTML={ { __html: post.content.rendered } }></div>
+        
         <form onSubmit={handleSubmit}>
         {
             loginError? <p className="alert">E-mail eller password er forkert.</p>: null
@@ -100,9 +86,7 @@ return(
                     <Button type="submit" value="send" tabIndex="1"/>
                 </form>
             </Modal>
-    </div>
-
-
+    </div>: null
     )
 }
 

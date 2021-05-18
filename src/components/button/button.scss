@@ -26,3 +26,10 @@ button{
     border: none;
     color:$call-to-action-color;
 }
+
+.item{
+    border: 1px solid black;
+    margin-bottom: 8px;
+    cursor: pointer;
+    background-color: transparent;
+}

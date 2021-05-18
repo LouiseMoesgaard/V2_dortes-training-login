@@ -3,11 +3,11 @@ import {Route, Switch} from 'react-router';
 import {BrowserRouter as Router} from 'react-router-dom';
 import './App.scss';
 
-import Home from './pages/home/home';
 import Login from './pages/login/login';
 import CategoryList from './pages/categoryList/CategoryList';
 import AuthService from "./services/auth";
 import ExerciseList from "./pages/exerciseList/exerciseList";
+import Exercise from './pages/exercise/exercise';
 
 
 
@@ -23,9 +23,9 @@ function App() {
     <div className="App">
       <Switch>
         <Route exact path="/" component={Login}/>
-        <Route path="/home" component={Home}/>
         <Route exact path="/categories" component={CategoryList} />
-        <Route path="/categories/:id"component={ExerciseList} />
+        <Route exact path="/categories/:id/exercises"component={ExerciseList} />
+        <Route path="/categories/:id/exercises/:exercise_id"component={Exercise} />
 
       </Switch>
     </div>

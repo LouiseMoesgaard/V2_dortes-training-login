@@ -43,3 +43,30 @@ $alert-color: #ff6262!important;
 @mixin page-padding-desktop-large{
     padding: 105px 30% 0 30%;   
 }
+
+.content {
+    @include page-padding-mobile;
+}
+.bluebox {
+    padding: 80px 20px;
+    background-color: $background-color;
+    color: $font-white-color;
+}
+
+@media only screen and (min-width: 768px) {
+    .content {
+        @include page-padding-tablet;
+    }
+}
+
+@media only screen and (min-width: 1024px) { 
+    .content {
+        @include page-padding-desktop-mini;
+    }
+}
+
+@media only screen and (min-width: 2560px) {
+    .content {
+        @include page-padding-desktop-large;
+    }
+}
