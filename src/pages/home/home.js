@@ -7,27 +7,6 @@ import './home.scss';
 
 
 function home(props) {
-
-    const categoriesArray = props.categories.map((elm) =>{
-        const obj = {
-            id: elm.id,
-            title: elm.title.rendered
-        }
-        return obj;
-    })
-   /*  function searching(studentArray) {
-
-        let searchBar = document.querySelector('#searchbar');
-    
-        searchBar.addEventListener("input", (e)=> {
-            const target = e.target.value;
-            const searched = studentArray.filter(elm => {
-                return elm.firstName.includes(target) || elm.lastName.includes(target);
-            })
-            displayList(searched);
-        });
-    } */
-
 return(
 
 <>
@@ -48,13 +27,6 @@ return(
             <input id="searchbar" placeholder="Søg i kategorier"/>
             <input id="submit" type="submit" value="søg" />
         </div>
-
-        <div className="categoryList">
-            {categoriesArray.map((item, i) => {
-                 return (<Category key={i} {...item} updateCategory = {props.updateCategory}/> );
-                 
-             })}
-            </div>
     
     </div>
 

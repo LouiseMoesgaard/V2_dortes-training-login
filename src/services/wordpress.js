@@ -1,4 +1,5 @@
 const baseEndpoint = "https://ariadna.dk/kea/Dortes-Training/wp/wp-json/wp/v2/";
+
 class Wordpress {
 
     static getCategories = async () => {

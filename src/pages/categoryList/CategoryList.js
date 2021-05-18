@@ -2,40 +2,40 @@ import React from 'react';
 import Navigation from '../../components/navigation/navigation.js';
 import './categoryList.scss';
 import Category from '../../components/category/Category';
+import Wordpress from '../../services/wordpress';
 
 
-function CategoryList(props){
+function CategoryList(){
+    const [categories, setCategories] = React.useState(null);
 
-
-    const categoriesArray = props.categories.map((elm) =>{
-        const obj = {
-            id: elm.id,
-            title: elm.title.rendered
-        }
-        return obj;
+    Wordpress.getCategories().then((categories)=>{
+        setCategories(categories.map(elm => {
+                return {
+                    id: elm.id,
+                    title: elm.title.rendered
+                };
+            })
+        )
     })
 
 
+
     return(
-
+        categories?
         <div className="categoryPage">
-
             <Navigation/>
-
             <div className="categoryList">
-            {categoriesArray.map((item, i) => {
+            {categories.map((item, i) => {
             return (
                 <Category 
                 key={i} 
                 {...item}
-                updateCategory = {props.updateCategory}
                 />
                  );
                  
                  })}
             </div>
-    
-      </div>
+        </div> : null
     )
 }
 

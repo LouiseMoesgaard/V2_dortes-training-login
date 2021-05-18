@@ -1,9 +1,11 @@
 import app from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/database';
 
 const config = {
     apiKey: "AIzaSyAM80kNqvK4OuDGP4nS0a89qTCl1zUi0Eo",
     authDomain: "dortes-training.firebaseapp.com",
+    databaseURL: "https://dortes-training-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "dortes-training",
     storageBucket: "dortes-training.appspot.com",
     messagingSenderId: "177995384003",
@@ -12,9 +14,12 @@ const config = {
  
 class AuthService {
   constructor() {
-    app.initializeApp(config);
+    if(!window.authService) {
+      app.initializeApp(config);
+    }
  
     this.auth = app.auth();
+    this.db = app.database();
     this.auth.onAuthStateChanged(user=> {
       if(user) {
         if(window.location.pathname === "/") {

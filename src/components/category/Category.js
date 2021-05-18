@@ -1,18 +1,16 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './category.scss';
 
 
-export default function Category(props){
+export default function Category({id, title}){
 
-    function setId(){
-       props.updateCategory(props.id);
-    }
+
 
     return(
-        <div className="category" onClick={setId}>
-
-            <h1 className="title">{props.title} </h1>
-        </div>
+        <Link className="category" to={`/categories/${id}`}>
+            <h1 className="title">{title} </h1>
+        </Link>
     )
 
 }
