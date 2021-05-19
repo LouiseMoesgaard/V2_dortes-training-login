@@ -1,9 +1,72 @@
 @import "../../styles/base.scss";
 
-.categoryList {
-  margin:20vh 6vw 0 6vw;
-}
+// .categoryList {
+//   margin: 20vh 6vw 0 6vw;
+// }
 
-.category{
-  width:54%;
+// .category {
+//   width: 54%;
+// }
+
+.categoryPage {
+  p {
+    font-family: $p-font;
+  }
+  .d-grid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    overflow: hidden;
+    margin-top: 4vh;
+
+    figure {
+      margin: 0;
+      height: 100%;
+
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    @media only screen and (max-width: 450px) {
+      grid-template-columns: auto;
+    }
+  }
+
+  .search-container {
+    width: 80%;
+    margin: 3em auto;
+    display: grid;
+    grid-template-columns: 80% 20%;
+
+    & > * {
+      padding: $padding-button;
+      width: 99%;
+      outline: none;
+    }
+
+    .searchbar {
+      border: 1px solid $border-color-grey;
+      color: $font-black-color;
+      &:focus {
+        border: 1px solid $call-to-action-color;
+      }
+    }
+
+    .primary-button {
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 1rem;
+      font-family: $h1-font;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      color: $font-white-color;
+      background-color: $call-to-action-color;
+      border: 1px solid $call-to-action-color;
+    }
+  }
+
+  .category-container {
+    margin-top: 10vh;
+  }
 }

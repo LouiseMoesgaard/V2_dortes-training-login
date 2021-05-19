@@ -8,13 +8,14 @@ label {
   text-decoration: none;
 }
 
-
 h1,
 h2 {
   font-family: $h1-font;
   font-size: 1.25rem;
   font-weight: lighter;
   line-height: 30px;
+  text-transform: uppercase;
+  margin-bottom: 4vh;
   width: fit-content;
   border-bottom: 3px solid;
   border-image: linear-gradient(to right, transparent 10%, $call-to-action-color 10%) 2;
@@ -31,14 +32,13 @@ a {
 }
 
 .alert {
-  color: $alert-color
+  color: $alert-color;
 }
 
-p, 
-li{
+p,
+li {
   font-family: $p-font;
   line-height: 23px;
   margin: 5px 0;
   font-size: 0.8rem;
-  
 }

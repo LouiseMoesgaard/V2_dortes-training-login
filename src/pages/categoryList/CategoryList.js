@@ -35,21 +35,26 @@ function CategoryList(){
                 <Header title="Velkommen til din online træning, [brugernavn]"/>
 
                 <div className="intro" dangerouslySetInnerHTML={ { __html: post.content.rendered } }></div>
+                <div className="search-container">
+                    <input id="searchbar" className="searchbar" placeholder="Søg i kategorier"/>
+                    <input id="submit" className="primary-button" type="submit" value="søg" />
+                </div>
 
-                    <input id="searchbar" placeholder="Søg i kategorier"/>
-                    <input id="submit" type="submit" value="søg" />
-                {categories.map((item, i) => {
+                <div className="category-container">
+                    <h1>Kategorier</h1>
+                    {categories.map((item, i) => {
                 return (
-                    <Link 
-                    className="category" 
-                    to={`/categories/${item.id}/exercises`}
-                    key={i} 
-                    >
-                        <Button className="item" value={item.title}></Button>
-                    </Link>
-                    );
+                        <Link className="category item-triangle" to={`/categories/${item.id}/exercises`} key={i} >
+                            <Button className="item" value={item.title}></Button>
+                            <div className="triangle"></div>
+                        </Link>
+                         );
                     
                     })}
+
+                </div>
+                   
+           
             </div>
         </div> : null
     )

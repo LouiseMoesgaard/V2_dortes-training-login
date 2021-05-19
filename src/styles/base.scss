@@ -1,72 +1,92 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-body{
-    margin: 0;
-    padding: 0;
+body {
+  margin: 0;
+  padding: 0;
 }
 
 .hide {
-    display: none!important;
+  display: none !important;
+}
+
+img {
+  width: 100%;
 }
 
 /** Fonts **/
 
-$h1-font: 'Merriweather';
+$h1-font: "Merriweather";
 
-$p-font:'raleway';
-
+$p-font: "raleway";
 
 /** Colors **/
 
-$background-color: #034D5A;
-$font-white-color: #FEF5F4;
-$font-black-color: #45494B;
-$call-to-action-color: #FD9C50;
-$alert-color: #ff6262!important;
+$background-color: #034d5a;
+$font-white-color: #fef5f4;
+$font-black-color: #45494b;
+$call-to-action-color: #fd9c50;
+$alert-color: #ff6262 !important;
+$border-color-grey: #c6cdcd;
+$padding-button: 16px;
 
 /*** Mixins **/
 
 @mixin page-padding-mobile {
-    padding: 105px 35px 0 35px;   
+  padding: 105px 35px 0 35px;
 }
 
-@mixin page-padding-tablet{
-    padding: 105px 60px 0 60px;   
+@mixin page-padding-tablet {
+  padding: 105px 60px 0 60px;
 }
 
-@mixin page-padding-desktop-mini{
-    padding: 120px 15% 0 15%;   
+@mixin page-padding-desktop-mini {
+  padding: 120px 15% 0 15%;
 }
 
-@mixin page-padding-desktop-large{
-    padding: 105px 30% 0 30%;   
+@mixin page-padding-desktop-large {
+  padding: 105px 30% 0 30%;
 }
 
 .content {
-    @include page-padding-mobile;
+  @include page-padding-mobile;
 }
 .bluebox {
-    padding: 80px 20px;
-    background-color: $background-color;
-    color: $font-white-color;
+  padding: 80px 20px;
+  background-color: $background-color;
+  color: $font-white-color;
 }
 
 @media only screen and (min-width: 768px) {
-    .content {
-        @include page-padding-tablet;
-    }
+  .content {
+    @include page-padding-tablet;
+  }
 }
 
-@media only screen and (min-width: 1024px) { 
-    .content {
-        @include page-padding-desktop-mini;
-    }
+@media only screen and (min-width: 1024px) {
+  .content {
+    @include page-padding-desktop-mini;
+  }
 }
 
 @media only screen and (min-width: 2560px) {
-    .content {
-        @include page-padding-desktop-large;
-    }
+  .content {
+    @include page-padding-desktop-large;
+  }
+}
+
+.item-triangle {
+  display: flex;
+  align-items: center;
+  border: 2px solid $border-color-grey;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 15px;
+}
+.triangle {
+  margin-right: 25px;
+  border-left: 16px solid $call-to-action-color;
+  border-bottom: 16px solid transparent;
+  border-top: 16px solid transparent;
 }

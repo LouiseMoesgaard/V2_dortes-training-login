@@ -31,15 +31,13 @@ function ExerciseList({match:{params:{id}}}){
         <div className="ExercisePage">
             <Navigation/>
             <div className="content">
+                <h1>{category.title}</h1>
             {category.exercise.map((item, i) => {
                 return (
-                    <Link 
-                    className="exercise" 
-                    to={`/categories/${category.id}/exercises/${item.id}`}
-                    key={i} 
-                    >
-                        <Button className="item" value={item.post_title}></Button>
-                    </Link>
+                        <Link className="exercise item-triangle" to={`/categories/${category.id}/exercises/${item.id}`} key={i} >
+                            <Button className="item" value={item.post_title}></Button>
+                            <div className="triangle"></div>
+                        </Link>
                     );
                     
                     })}
