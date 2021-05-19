@@ -4,12 +4,15 @@ import Navigation from '../../components/navigation/navigation';
 import {Link} from 'react-router-dom';
 import Button from '../../components/button/button';
 import Header from '../../components/header/header';
+import AuthService from '../../services/auth'
 
 import './exercise.scss'
+import Chat from '../../components/chat/chat';
 
 
 function Exercise({match:{params:{exercise_id}}}) {
     const [exercise, setExercise] = React.useState(null);
+    const [user, setUser] = React.useState(null);
 
     React.useEffect(()=>{
         console.log();
@@ -24,7 +27,26 @@ function Exercise({match:{params:{exercise_id}}}) {
                 
             });
         })
+
+        AuthService.getDatabase().ref('users').orderByChild("uid").equalTo(window.authService.auth.currentUser.uid)
+        .once("value", (snapshot)=>{
+            snapshot.forEach(function(snap) {
+                const user = {
+                    id: snap.key,
+                    ...snap.val()
+                };
+                setUser(user)
+            });
+        })
     }, [])
+
+    const saveExercise = ()=> {
+        let newExercises = user.exercises.slice();
+        newExercises.push(parseInt(exercise_id));
+        AuthService.getDatabase().ref(`users/${user.id}/exercises`).set(newExercises);
+    }
+
+    
 
     return (
         exercise?
@@ -32,19 +54,23 @@ function Exercise({match:{params:{exercise_id}}}) {
             <Navigation/>
 
             <div className="content">
-            <Header title={exercise.title}/>
-
-            <Button value="Gem til favoritter"></Button>
-
-            <div className="bluebox">
-                <img className="excerciseGuideImg" src={exercise.guide_img}/>
-                <div className="excerciseGuideText" dangerouslySetInnerHTML={ { __html: exercise.guide } }></div>
+            <div className="d-grid">
+                <Header title={exercise.title}/>
+                <Button value="Gem til favoritter" onClick={()=>saveExercise()}></Button>
             </div>
-            <iframe width="640" height="360" src={exercise.video}></iframe>
+
+            <div className="bluebox d-grid">
+                <img className="excerciseGuideImg" src={exercise.guide_img}/>
+                <div>
+                <Header title={exercise.title}/>
+                <div className="excerciseGuideText" dangerouslySetInnerHTML={ { __html: exercise.guide } }></div>
+                </div>
+            </div>
+            <iframe src={exercise.video}></iframe>
 
             <div className="bluebox">
                 <Header title="Velkommen, har du nogle kommentarer?"/>
-                
+                <Chat/>
 
 
             </div>

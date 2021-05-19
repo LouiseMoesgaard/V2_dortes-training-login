@@ -5,10 +5,15 @@
 nav {
     position: fixed;
     top: 0;
-    height: 69px;
+    height: 70px;
     width: 100%;
-    padding: 25px 35px 0 35px;
+    padding: 5px 35px 0 35px;
     z-index: 5;
+    .logo {
+        height: 60px;
+        width: 200px;
+        display: inline-block;
+    }
 
     .burger{
         width: 38px;
@@ -16,6 +21,7 @@ nav {
         display: inline-block;
         position: fixed;
         right: 35px;
+        top: 25px;
         .line {
             height: 3px;
             background-color: $font-white-color;
@@ -68,15 +74,50 @@ nav {
             color: $font-white-color;
             line-height: 75px;
             font-family: $h1-font;
-            line-height: 23px;
+            padding: 0;
             font-size: 0.8rem;
             text-transform: uppercase;
+        }
+        .icon {
+            height: 75px;
+            padding: 0;
         }
 
         .active {
             border-bottom: 3px solid;  
             line-height: 50px;         
             border-image: linear-gradient(to right, transparent 10%, $call-to-action-color 10%) 2;
+        }
+
+        &.desktop {
+            top: 5px;
+            display: inline-block;
+            padding: 0;
+            width: auto;
+            height: auto;
+            background-color: transparent;
+            vertical-align: top;
+            .active {
+                border-bottom: 3px solid;  
+                line-height: 35px;         
+                border-image: linear-gradient(to right, transparent 10%, $call-to-action-color 10%) 2;
+            }
+            a, .link, .icon {
+                display: inline-block;
+                line-height: 60px;
+                padding: 0;
+                margin: 0 60px;
+                color: $font-black-color;
+            }
+            .icon {
+                height: 60px;
+                img {
+                    vertical-align: middle;
+                    width: 25px;
+                    height: 25px;
+
+                }   
+            }
         }
     
     }
@@ -97,7 +138,7 @@ nav {
 }
 
 .nav-white {
-    background-color: $font-white-color;
+    background-color: $bg-white;
 }
 
 .burger-black {
@@ -112,115 +153,3 @@ nav {
     }
     
 }
-
-/* .menu_wrapper {
-    padding: 10px 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-}
-
-.logo {
-    width: 40%;
-}
-
-.logo img {
-    margin: 0;
-}
-
-.burger_open {
-    width: 3rem;
-    justify-self: end;
-    padding-top: 10px;
-    position: relative;
-    cursor: pointer;
-}
-
-.burger_open div {
-    height: 3px;
-    width: 2rem;
-    background-color: #fdfcfa;
-    margin-bottom: 10px;
-    transition: 0.3s ease-in-out;
-}
-.burger_open div:nth-child(2) {
-    width: 3rem;
-}
-
-.burger_open div:last-child {
-    margin-bottom: 0;
-}
-
-.open_menu{
-    width: 3rem;
-    justify-self: end;
-    padding-top: 10px;
-    position: relative;
-    z-index: 5;
-    cursor: pointer;
-}
-
-.open_menu .line1 {
-    top: 25px;
-    transform: rotate(45deg);
-    position: absolute;
-    width: 3rem;
-}
-
-.open_menu .line2 {
-    display: none;
-}
-
-.open_menu .line3 {
-    transform: rotate(-45deg);
-    position: absolute;
-    width: 3rem;
-    top: 25px;
-}
-
-.menu {
-    margin: 0;
-    height: 100vh;
-    position: fixed;
-    right: 0;
-    width: 30vw;
-    top: 0;
-    background-color: #243146; 
-}
-
-.menu .rotate{
-    transform-origin: 0 0;
-    transform: rotate(90deg);
-    width: 1000px;
-    top: 7rem;
-    right: -18vw;
-    position: relative;
-}
-
-.menu a {
-    position: relative;
-    color: #fdfcfa;
-    font-family: 'Optima', sans-serif;
-    font-size: 1rem;
-    margin-right: 25px;
-}
-
-.menu a,
-.menu a:active,
-.menu a:link,
-.menu a:visited {
-    color:#fffcf3;
-}
-
-.menu .active::before {
-    content:"";
-    display: inline-block;
-    height: 2px;
-    width: 32px;
-    background-color: #fdfcfa;
-    transform: rotate(90deg);
-    position: absolute;
-    top: 45px;
-    left: 31%; 
-}
- */

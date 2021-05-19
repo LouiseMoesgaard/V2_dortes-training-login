@@ -16,6 +16,11 @@ class Wordpress {
         const response = await fetch(baseEndpoint + `categories/${id}`)
         return await response.json();
     }
+    static getExercises = async (ids) => {
+        const queryString = ids? `?include[]=${ids.join('&include[]=')}` : '';
+        const response = await fetch(baseEndpoint + `exercise${queryString}`)
+        return await response.json();
+    }
     static getExercise = async (id) => {
         const response = await fetch(baseEndpoint + `exercise/${id}`)
         return await response.json();

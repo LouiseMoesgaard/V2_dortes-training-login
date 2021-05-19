@@ -11,40 +11,39 @@ const config = {
     messagingSenderId: "177995384003",
     appId: "1:177995384003:web:eb4b3282c3f7e67f510e76"
 };
+app.initializeApp(config);
+const auth = app.auth();
+const db = app.database();
+auth.onAuthStateChanged(user=> {
+  if(user) {
+    if(window.location.pathname === "/") {
+      window.location.href = "/categories";
+    }
+  } else {
+      if(window.location.pathname !== "/") {
+        window.location.href = "/";
+      }
+  } 
+});
  
 class AuthService {
-  constructor() {
-    if(!window.authService) {
-      app.initializeApp(config);
-    }
- 
-    this.auth = app.auth();
-    this.db = app.database();
-    this.auth.onAuthStateChanged(user=> {
-      if(user) {
-        if(window.location.pathname === "/") {
-          window.location.href = "/categories";
-        }
-      } else {
-          if(window.location.pathname !== "/") {
-            window.location.href = "/";
-          }
-      } 
-    });
-  }
  
   // *** Auth API ***
+
+  static getDatabase = () => db
  
-  doSignInWithEmailAndPassword = (email, password) => 
-    this.auth.signInWithEmailAndPassword(email, password);
+  static doSignInWithEmailAndPassword = (email, password) => 
+    auth.signInWithEmailAndPassword(email, password);
   
  
-  doSignOut = () => this.auth.signOut();
+  static doSignOut = () => auth.signOut();
 
  
-  doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
+  static doPasswordReset = email => auth.sendPasswordResetEmail(email);
  
-  doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
+  static doPasswordUpdate = password => auth.currentUser.updatePassword(password);
+
+  static currentUser = ()=> auth.currentUser
 }
  
 export default AuthService;

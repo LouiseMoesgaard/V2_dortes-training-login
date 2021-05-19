@@ -1,0 +1,55 @@
+@import '../../styles/base.scss';
+
+.ExercisePage {
+    
+    p {
+      font-family: $p-font;
+    }
+    .d-grid {
+        margin-top: 0;
+        button {
+          align-self: flex-start;
+
+
+      }
+    }
+
+    iframe{
+        width: 100%;
+        height: 100%;
+        margin: 3em auto;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+    
+}
+
+@media only screen and (min-width: 1024px) {
+    
+    .ExercisePage {
+    
+        p {
+          font-family: $p-font;
+        }
+        .d-grid {
+            grid-gap: 20px;
+            grid-template-columns: 40% 40%;
+        }
+    
+        iframe{
+            width: 100%;
+            height: 100%;
+            margin: 3em auto;
+        }
+    }
+    
+
+
+}
+
+@media only screen and (min-width: 2560px) {
+
+}
+

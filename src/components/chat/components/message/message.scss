@@ -1,0 +1,11 @@
+@import '../../../../styles/base.scss';
+
+.message{
+    padding: 10px;
+    background-color: $background-color;
+    color: $font-white-color;
+}
+.indent {
+    margin-left: 30px;
+    margin-top: 10px;
+}

@@ -11,7 +11,7 @@ function Button(props) {
             className={props.className? props.className : 'base'} 
             onClick={props.onClick}
             tabIndex={props.tabIndex}>
-            {props.value}
+            {!props.icon? props.value: <img src={props.icon}></img>}
         </button>
         )
 }

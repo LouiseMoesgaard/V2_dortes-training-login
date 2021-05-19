@@ -27,7 +27,7 @@ function Login() {
         window.authService.doSignInWithEmailAndPassword(event.target['email'].value, event.target['password'].value)
         .then(()=>{
             setLoginError(false);
-            history.push('/home');
+            history.push('/categories');
         }, ()=>{
             setLoginError(true);
         })

@@ -2,6 +2,14 @@
 
 button {
   cursor: pointer;
+
+  &.icon {
+    background-color: transparent;
+    border: transparent;
+    display: inline-block;
+    width: auto; 
+    height: auto;
+  }
 }
 
 .base {
