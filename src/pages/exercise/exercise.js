@@ -28,7 +28,7 @@ function Exercise({match:{params:{exercise_id}}}) {
             });
         })
 
-        AuthService.getDatabase().ref('users').orderByChild("uid").equalTo(window.authService.auth.currentUser.uid)
+        AuthService.getDatabase().ref('users').orderByChild("uid").equalTo(AuthService.currentUser().uid)
         .once("value", (snapshot)=>{
             snapshot.forEach(function(snap) {
                 const user = {
