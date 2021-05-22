@@ -4,6 +4,7 @@ import Header from '../../components/header/header'
 import Modal from '../../components/modal/modal';
 import Button from '../../components/button/button';
 import Wordpress from '../../services/wordpress';
+import AuthService from '../../services/auth';
 import './login.scss'
 
 
@@ -24,7 +25,7 @@ function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        window.authService.doSignInWithEmailAndPassword(event.target['email'].value, event.target['password'].value)
+        AuthService.doSignInWithEmailAndPassword(event.target['email'].value, event.target['password'].value)
         .then(()=>{
             setLoginError(false);
             history.push('/categories');
@@ -35,7 +36,7 @@ function Login() {
 
     const resetPassword = (event) => {
         event.preventDefault();
-        window.authService.doPasswordReset(event.target['email'].value).then(()=>{
+        AuthService.doPasswordReset(event.target['email'].value).then(()=>{
             setShowReset(false);
         }, ()=>{
             setResetError(true);

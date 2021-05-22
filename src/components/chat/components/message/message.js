@@ -11,9 +11,9 @@ function Message({message, user, callback, indent}){
 
     return (
         <div className={`message ${indent? 'indent' : ''}`} onClick={()=>callback?callback(message): null}>
-            <p>{user.username}</p>
-            <p>{message.content}</p>
-            <p>{formatTime(message.timestamp)}</p>
+            <p className="userName">{user.username}</p>
+            <p className="messageContent">{message.content}</p>
+            <p className="time">{formatTime(message.timestamp)}</p>
         </div>
     )
 }

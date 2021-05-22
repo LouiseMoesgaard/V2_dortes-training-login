@@ -5,7 +5,8 @@
     .messageBox {
         padding: 20px;
         width:100%;
-        height: 70%;
+        height: 500px;
+        overflow: scroll;
         background: $font-white-color;
         .messageWrapper {
             &:not(:first-child) {
@@ -13,4 +14,26 @@
             }
         }
     }
+    input {
+        padding: 10px;
+        width: 100%;
+        height: 40px;
+        background: #F9F8F7;
+        border: 2px solid #C6CDCD;
+        box-sizing: border-box;
+      }
+}
+
+@media only screen and (min-width: 1024px) {
+    .chat {
+        .messageBox {
+            padding: 50px;
+        }
+        input {
+            width: 80%;
+            margin-right: 25px;
+        }
+    }
+
+
 }

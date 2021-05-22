@@ -49,6 +49,8 @@ function Chat() {
         }
         AuthService.getDatabase().ref('chats').push(m).then(()=>{
             setContent("");
+            setReply(false);
+            setReplyTo(null);
         });
     }
 
@@ -61,7 +63,6 @@ function Chat() {
     }
 
     const handleReply = (message)=> {
-        console.log(message)
         setReply(true);
         setReplyTo(message);
     }
@@ -97,6 +98,9 @@ function Chat() {
                     
                 }
             </div>
+            { reply?
+            <p className="reply">Nu svarer du: {getUser(replyTo.uid).username}</p> : null
+            }
             <form onSubmit={handleSubmit}>
                 <input type="text" onChange={handleChange} value={content}></input>
                 <Button type="submit" value="Send"/>

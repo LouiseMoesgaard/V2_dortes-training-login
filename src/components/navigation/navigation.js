@@ -3,9 +3,12 @@ import React, { useState, useEffect } from 'react';
 import {NavLink} from 'react-router-dom';
 import Button from '../button/button';
 import Modal from '../../components/modal/modal';
+import AuthService from '../../services/auth';
 
 import gear from '../../medier/icons/gear.png';
 import './navigation.scss';
+import Settings from '../settings/settings';
+import Responsiveness from '../../services/responsiveness';
 
 function Navigation(props) {
     const [menuHidden, setmenuHidden] = useState(true);
@@ -13,13 +16,18 @@ function Navigation(props) {
     const [settingsOpen, setSettingsOpen] = useState(false);
 
     useEffect(()=>{
-        setIsMobile(detectMobile());
-        window.addEventListener("resize", ()=> setIsMobile(detectMobile()));
+        setMobile();
+        window.addEventListener("resize",setMobile);
+        return function cleanup() {
+            window.removeEventListener('resize', setMobile);
+          };
     }, [])
 
-    const detectMobile = () => {
-        return ( ( window.innerWidth <= 800 ) && ( window.innerHeight <= 1024 ) );
-      }
+    const setMobile = ()=> {
+        setIsMobile(Responsiveness.isMobile())
+    }
+
+
 
     return (
         <nav className={`${isMobile? 'nav-green' : 'nav-white'}`}>     
@@ -38,11 +46,11 @@ function Navigation(props) {
                 <div className={`menu ${menuHidden && isMobile ? "hide" : ""} ${!isMobile? 'desktop' : ''}`}>
                         <NavLink to="/categories" activeClassName="active">Forside</NavLink>
                         <NavLink to="/saved" activeClassName="active">Gemte øvelser</NavLink>
-                        <Button className="link" value="Log ud" onClick={()=>window.authService.doSignOut()}/>
+                        <Button className="link" value="Log ud" onClick={()=>AuthService.doSignOut()}/>
                         <Button className="icon" icon={gear} onClick={()=>setSettingsOpen(true)}></Button>
                 </div>
 
-                <Modal visible={settingsOpen} onClose={()=>setSettingsOpen(false)} title="Indstillinger"></Modal>
+                <Modal visible={settingsOpen} onClose={()=>setSettingsOpen(false)} title="Indstillinger"><Settings></Settings></Modal>
         </nav>
     )
 
