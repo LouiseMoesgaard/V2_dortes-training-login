@@ -8,17 +8,18 @@ import AuthService from '../../services/auth'
 
 import './exercise.scss'
 import Chat from '../../components/chat/chat';
+import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
 
 
 function Exercise({match:{params:{exercise_id}}}) {
     const [exercise, setExercise] = React.useState(null);
     const [user, setUser] = React.useState(null);
+    const [routes, setRoutes] = React.useState(null);
 
     React.useEffect(()=>{
         console.log();
 
         Wordpress.getExercise(exercise_id).then((exercise)=>{
-            console.log(exercise);
             setExercise({
                 title: exercise.title.rendered,
                 guide: exercise.guide,
@@ -26,6 +27,11 @@ function Exercise({match:{params:{exercise_id}}}) {
                 video: exercise.exercise_video_link.replace('watch?v=', 'embed/')
                 
             });
+            setRoutes([
+                {href:"/categories", name:"Kategorier"},
+                {href:`/categories/${exercise.trainingtype[0].id}/exercises`, name:`${exercise.trainingtype[0].post_title}`},
+                {href:`/categories/${exercise.trainingtype[0].id}/exercises/${exercise.id}`, name:`${exercise.title.rendered}`}
+            ])
         })
 
         AuthService.getDatabase().ref('users').orderByChild("uid").equalTo(AuthService.currentUser().uid)
@@ -49,11 +55,11 @@ function Exercise({match:{params:{exercise_id}}}) {
     
 
     return (
-        exercise?
+        exercise && routes?
         <div className="ExercisePage">
             <Navigation/>
-
             <div className="content">
+            <Breadcrumbs routes={routes}/>
             <div className="d-grid">
                 <Header title={exercise.title}/>
                 <Button value="Gem til favoritter" onClick={()=>saveExercise()}></Button>

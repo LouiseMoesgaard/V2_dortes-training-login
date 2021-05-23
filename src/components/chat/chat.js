@@ -4,6 +4,7 @@ import AuthService from '../../services/auth';
 
 import './chat.scss';
 import Button from '../button/button';
+import Icon from '../icon/icon';
 
 function Chat() {
     const [user, setUser] = React.useState(AuthService.currentUser());
@@ -93,18 +94,26 @@ function Chat() {
     
                                     )
                                 }
+                                { replyTo && replyTo.timestamp === message.timestamp ?
+                                <>
+                                    <form onSubmit={handleSubmit}>
+                                    <input type="text" onChange={handleChange} value={content}></input>
+                                    <Button type="submit" value="Send"/>
+                                </form>
+                                </> : null
+                                }
+                                
                     </div>
                     )
                     
                 }
             </div>
-            { reply?
-            <p className="reply">Nu svarer du: {getUser(replyTo.uid).username}</p> : null
-            }
+            { !reply?
             <form onSubmit={handleSubmit}>
                 <input type="text" onChange={handleChange} value={content}></input>
                 <Button type="submit" value="Send"/>
-            </form>
+            </form>: null
+            }
         </div>
 
 

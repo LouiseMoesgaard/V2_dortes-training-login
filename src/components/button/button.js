@@ -10,6 +10,7 @@ function Button(props) {
             type={props.type? props.type : 'button'} 
             className={props.className? props.className : 'base'} 
             onClick={props.onClick}
+            disabled={props.disabled}
             tabIndex={props.tabIndex}>
             {!props.icon? props.value: <img src={props.icon}></img>}
         </button>

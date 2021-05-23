@@ -2,6 +2,10 @@
 
 button {
   cursor: pointer;
+  &:disabled{
+    cursor: initial;
+    color: $border-color-grey
+  }
 
   &.icon {
     background-color: transparent;

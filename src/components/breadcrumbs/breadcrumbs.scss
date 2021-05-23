@@ -1,0 +1,12 @@
+@import '../../styles/base.scss';
+
+.breadCrumbs {
+    svg {
+        height:10px;
+        width: 10px;
+        fill: $call-to-action-color;
+    }
+    button.link{
+        color: $font-black-color;
+    }
+}

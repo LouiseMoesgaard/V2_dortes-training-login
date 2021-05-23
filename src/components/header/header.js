@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function header(props) {
+function Header(props) {
 
 return(
 
@@ -22,4 +22,4 @@ return(
     )
 }
 
-export default header;
+export default Header;
