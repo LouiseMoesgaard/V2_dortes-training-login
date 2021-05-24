@@ -9,7 +9,9 @@ import {Link} from 'react-router-dom';
 
 function CategoryList(){
     const [categories, setCategories] = React.useState(null);
+    const [filteredCategories, setFilteredCategories] = React.useState(null);
     const [post, setPost] = React.useState(null);
+    const [search, setSearch] = React.useState('');
 
     React.useEffect(()=>{
         Wordpress.getpost(257).then((post)=>{
@@ -17,18 +19,24 @@ function CategoryList(){
         });
         
         Wordpress.getCategories().then((categories)=>{
-            setCategories(categories.map(elm => {
-                    return {
-                        id: elm.id,
-                        title: elm.title.rendered
-                    };
-                })
-            )
+            const cats = categories.map(elm => {
+                return {
+                    id: elm.id,
+                    title: elm.title.rendered
+                };
+            });
+            setCategories(cats);
+            setFilteredCategories(cats);
         })
     }, [])
 
+    const doSearch = (e)=> {
+        e.preventDefault();
+        setFilteredCategories(categories.filter(cat=>cat.title.includes(search)));
+    }
+
     return(
-        categories && post?
+        filteredCategories && post?
         <div className="categoryPage">
             <Navigation/>
             <div className="content">
@@ -39,10 +47,12 @@ function CategoryList(){
                 <div className="category-container">
                     <h1>Kategorier</h1>
                     <div className="search-container">
-                    <input id="searchbar" className="searchbar" placeholder="Søg i kategorier"/>
-                    <Button type="submit" value="søg"/>
+                    <form onSubmit={(e)=>doSearch(e)}>
+                        <input id="searchbar" className="searchbar" placeholder="Søg i kategorier" value={search} onChange={e=>setSearch(e.target.value)}/>
+                        <Button type="submit" value="søg"/>
+                    </form>
                 </div>
-                    {categories.map((item, i) => {
+                    {filteredCategories.map((item, i) => {
                 return (
                         <Link className="category item-triangle" to={`/categories/${item.id}/exercises`} key={i} >
                             <Button className="item" value={item.title}></Button>

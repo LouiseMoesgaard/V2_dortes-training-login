@@ -1,3 +1,5 @@
+@import '../../styles/base.scss';
+
 .userSettings {
     input {
         padding: 10px;
@@ -6,6 +8,9 @@
         background: #F9F8F7;
         border: 2px solid #C6CDCD;
         box-sizing: border-box;
+        &:focus-visible{
+            outline: $call-to-action-color;
+        }
       }
     label{
         display: block;

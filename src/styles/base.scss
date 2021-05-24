@@ -44,26 +44,26 @@ img {
 /*** Mixins **/
 
 @mixin page-padding-mobile {
-  padding: 105px 35px 0 35px;
+  padding: 105px 30px 0 30px;
 }
 
 @mixin page-padding-tablet {
-  padding: 105px 60px 0 60px;
+  padding: 105px 35px 0 35px;
 }
 
 @mixin page-padding-desktop-mini {
-  padding: 120px 15% 0 15%;
+  padding: 120px 8% 0 8%;
 }
 
 @mixin page-padding-desktop-large {
-  padding: 105px 30% 0 30%;
+  padding: 105px 26% 0 26%;
 }
 
 .content {
   @include page-padding-mobile;
 }
 .bluebox {
-  padding: 80px 20px;
+  padding: 30px;
   background-color: $background-color;
   color: $font-white-color;
 }
@@ -77,6 +77,9 @@ img {
 @media only screen and (min-width: 1024px) {
   .content {
     @include page-padding-desktop-mini;
+    .bluebox {
+      padding: 50px;
+    }
   }
 }
 

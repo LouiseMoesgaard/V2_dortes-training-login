@@ -31,9 +31,12 @@
   .search-container {
     width: 60%;
     margin: 3em auto;
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 72% 26%;
+    
+    form {
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: 76% 22%;
+    }
 
     input {
       padding: 10px;
@@ -42,6 +45,9 @@
       background: #F9F8F7;
       border: 2px solid #C6CDCD;
       box-sizing: border-box;
+      &:focus-visible{
+        outline: $call-to-action-color;
+      }
     }
     button {
       margin: 0;

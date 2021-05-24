@@ -41,14 +41,18 @@ function Saved() {
     }, [])
 
     const removeSaved = () => {
-        let newExercises = user.exercises.slice();
+        let newExercises = user.exercises? user.exercises.slice(): [];
         newExercises = newExercises.filter(exercise=>exercise !== remove.id)
         AuthService.getDatabase().ref(`users/${user.id}/exercises`).set(newExercises).then(()=>{
             setUser({
                 ...user,
                 exercises: newExercises
             })
-            Wordpress.getExercises(newExercises).then(exercises=>setExercises(exercises));
+            if(newExercises.length > 0){
+                Wordpress.getExercises(newExercises).then(exercises=>setExercises(exercises));
+            } else {
+                setExercises(newExercises)
+            }
             setOpenModal(false)
         });
     }
@@ -74,7 +78,7 @@ function Saved() {
                         >
                             <Button value={item.title.rendered}></Button>
                         </Link>
-                    <Button value="Slet" key={i+'_child'} onClick={()=>{setRemove(item); setOpenModal(true)}}></Button>
+                        <Button value="Slet" key={i+'_child'} onClick={()=>{setRemove(item); setOpenModal(true)}}></Button>
                     </>
                     )
 
@@ -88,8 +92,8 @@ function Saved() {
             <p>Vil du virkelig slette {remove.title.rendered}?</p>
             <p>Denne proces kan ikke fortrydes</p>
 
-            <Button className="item" value="Anullér" onClick={()=>setOpenModal(false)}></Button>
-            <Button className="item" value="Slet" onClick={()=>removeSaved()}></Button>
+            <Button value="Anullér" onClick={()=>setOpenModal(false)}></Button>
+            <Button value="Slet" onClick={()=>removeSaved()}></Button>
             </Modal>: null
             }
         </div> : null

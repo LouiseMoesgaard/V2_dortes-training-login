@@ -47,7 +47,7 @@ function Exercise({match:{params:{exercise_id}}}) {
     }, [])
 
     const saveExercise = ()=> {
-        let newExercises = user.exercises.slice();
+        let newExercises = user.exercises? user.exercises.slice(): [];
         newExercises.push(parseInt(exercise_id));
         AuthService.getDatabase().ref(`users/${user.id}/exercises`).set(newExercises);
     }
