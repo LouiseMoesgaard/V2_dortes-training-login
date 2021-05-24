@@ -1,0 +1,14 @@
+.savedPage {
+    .intro{
+        margin: 0 -30px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .savedPage{
+        .intro{
+            margin: 0;
+        }
+    }
+    
+}

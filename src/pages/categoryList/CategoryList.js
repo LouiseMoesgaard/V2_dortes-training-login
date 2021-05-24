@@ -1,6 +1,7 @@
 import React from 'react';
 import Navigation from '../../components/navigation/navigation.js';
 import './categoryList.scss';
+import AuthService from '../../services/auth';
 import Wordpress from '../../services/wordpress';
 import Header from '../../components/header/header';
 import Button from '../../components/button/button.js';
@@ -12,6 +13,7 @@ function CategoryList(){
     const [filteredCategories, setFilteredCategories] = React.useState(null);
     const [post, setPost] = React.useState(null);
     const [search, setSearch] = React.useState('');
+    const [user, setUser] = React.useState(null);
 
     React.useEffect(()=>{
         Wordpress.getpost(257).then((post)=>{
@@ -28,6 +30,16 @@ function CategoryList(){
             setCategories(cats);
             setFilteredCategories(cats);
         })
+        AuthService.getDatabase().ref('users').orderByChild("uid").equalTo(AuthService.currentUser().uid)
+        .once("value", (snapshot)=>{
+            snapshot.forEach(function(snap) {
+                const user = {
+                    id: snap.key,
+                    ...snap.val()
+                };
+                setUser(user)
+            });
+        })
     }, [])
 
     const doSearch = (e)=> {
@@ -36,11 +48,11 @@ function CategoryList(){
     }
 
     return(
-        filteredCategories && post?
+        filteredCategories && post && user?
         <div className="categoryPage">
             <Navigation/>
             <div className="content">
-                <Header title="Velkommen til din online træning, [brugernavn]"/>
+                <Header title={`Velkommen til din online træning, ${user.username}`}/>
 
                 <div className="intro" dangerouslySetInnerHTML={ { __html: post.content.rendered } }></div>
 

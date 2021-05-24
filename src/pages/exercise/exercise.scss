@@ -5,15 +5,22 @@
     p {
       font-family: $p-font;
     }
-    .d-grid {
-        margin-top: 0;
-        grid-template-columns: 100%;
-        grid-template-rows: 200px;
-        button {
-          align-self: flex-start;
-
-
-      }
+    .content{
+        &>.d-grid{
+            margin: 0;
+        }
+        &>.bluebox {
+            margin: 0 -30px;
+        }
+    }
+    .bluebox.d-grid {
+            margin-top: 0;
+            grid-template-columns: 100%;
+            grid-template-rows: 225px;
+            margin: 0 -30px;
+            button {
+              align-self: flex-start;
+            }
     }
 
     iframe{
@@ -26,10 +33,18 @@
 
 @media only screen and (min-width: 768px) {
     .ExercisePage{
-        .d-grid {
+        .bluebox.d-grid {
             grid-gap: 20px;
             grid-template-columns: 49% 49%;
             grid-template-rows: auto;
+                }
+        .content{
+            &>.d-grid{
+                margin: 0;
+            }
+            &>.bluebox {
+                margin: 0;
+            }
         }
     }
     

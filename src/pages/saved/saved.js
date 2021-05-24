@@ -7,6 +7,8 @@ import {Link} from 'react-router-dom';
 import Modal from '../../components/modal/modal.js';
 import AuthService from '../../services/auth.js';
 
+import './saved.scss';
+
 
 
 
