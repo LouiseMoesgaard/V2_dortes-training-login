@@ -12,7 +12,8 @@ function Button(props) {
             onClick={props.onClick}
             disabled={props.disabled}
             tabIndex={props.tabIndex}>
-            {!props.icon? props.value: <img src={props.icon}></img>}
+            {!props.icon? <span>props.value</span>: <img src={props.icon}></img>}
+            {props.className === 'item'? <div className="triangle"></div> : null}
         </button>
         )
 }

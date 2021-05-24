@@ -78,7 +78,7 @@ function Saved() {
                         to={`/categories/${item.trainingtype[0].id}/exercises/${item.id}`}
                         key={i} 
                         >
-                            <Button value={item.title.rendered}></Button>
+                            <Button className="item" value={item.title.rendered}></Button>
                         </Link>
                         <Button value="Slet" key={i+'_child'} onClick={()=>{setRemove(item); setOpenModal(true)}}></Button>
                     </>

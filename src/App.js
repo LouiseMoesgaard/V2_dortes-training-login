@@ -8,11 +8,19 @@ import CategoryList from './pages/categoryList/CategoryList';
 import ExerciseList from "./pages/exerciseList/exerciseList";
 import Exercise from './pages/exercise/exercise';
 import Saved from './pages/saved/saved';
+import AuthService from './services/auth';
 
 
 
 function App() {
+  const [render, setRender] = React.useState(false)
+  React.useEffect(()=>{
+    AuthService.authHook(()=>{
+      setRender(true);
+    });
+  }, [])
   return (
+    render ?
     <Router>
       <div className="App">
         <Switch>
@@ -24,8 +32,7 @@ function App() {
 
         </Switch>
       </div>
-    </Router>
-
+    </Router> : null
   );
 }
 

@@ -42,9 +42,8 @@ function ExerciseList({ match: { params: { id } } }) {
                     <Header title={category.title}></Header>
                     {category.exercise.map((item, i) => {
                         return (
-                            <Link className="exercise item-triangle" to={`/categories/${category.id}/exercises/${item.id}`} key={i} >
+                            <Link className="exercise" to={`/categories/${category.id}/exercises/${item.id}`} key={i} >
                                 <Button className="item" value={item.post_title}></Button>
-                                <div className="triangle"></div>
                             </Link>
                         );
 

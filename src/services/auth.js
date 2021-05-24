@@ -14,17 +14,21 @@ const config = {
 app.initializeApp(config);
 const auth = app.auth();
 const db = app.database();
+let currentUser = null;
 auth.onAuthStateChanged(user=> {
   if(user) {
+    currentUser = user;
     if(window.location.pathname === "/") {
       window.location.href = "/categories";
     }
   } else {
+      currentUser = null;
       if(window.location.pathname !== "/") {
         window.location.href = "/";
       }
   } 
 });
+
  
 class AuthService {
  
@@ -43,7 +47,10 @@ class AuthService {
  
   static doPasswordUpdate = password => auth.currentUser.updatePassword(password);
 
-  static currentUser = ()=> auth.currentUser
+  static currentUser = ()=> currentUser
+
+  static authHook = (callback)=> auth.onAuthStateChanged(callback)
+  
 }
  
 export default AuthService;

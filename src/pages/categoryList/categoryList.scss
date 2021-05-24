@@ -35,7 +35,7 @@
     form {
       display: grid;
       grid-gap: 10px;
-      grid-template-columns: 76% 22%;
+      grid-template-rows: 40px 40px;
     }
 
     input {
@@ -64,5 +64,8 @@
 
   .category-container {
     margin-top: 10vh;
+    .category {
+      width: 100%;
+    }
   }
 }

@@ -92,18 +92,3 @@ img {
     @include page-padding-desktop-large;
   }
 }
-
-.item-triangle {
-  display: flex;
-  align-items: center;
-  border: 2px solid $border-color-grey;
-  width: 80%;
-  margin: auto;
-  margin-bottom: 15px;
-}
-.triangle {
-  margin-right: 25px;
-  border-left: 16px solid $call-to-action-color;
-  border-bottom: 16px solid transparent;
-  border-top: 16px solid transparent;
-}

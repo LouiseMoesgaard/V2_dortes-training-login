@@ -66,9 +66,9 @@ function CategoryList(){
                 </div>
                     {filteredCategories.map((item, i) => {
                 return (
-                        <Link className="category item-triangle" to={`/categories/${item.id}/exercises`} key={i} >
+                        <Link className="category" to={`/categories/${item.id}/exercises`} key={i} >
                             <Button className="item" value={item.title}></Button>
-                            <div className="triangle"></div>
+                            <div className=""></div>
                         </Link>
                          );
                     
