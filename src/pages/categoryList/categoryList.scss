@@ -65,7 +65,9 @@
   .category-container {
     margin-top: 10vh;
     .category {
-      width: 100%;
+      width: 60%;
+      margin: 3em auto;
+      display: block;
     }
   }
 }

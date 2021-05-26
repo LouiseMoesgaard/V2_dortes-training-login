@@ -9,8 +9,8 @@ function Breadcrumbs({routes}) {
         <div className="breadCrumbs">
             {
                 routes.map((route,i)=>
-                <>
-                    <Link to={route.href} key={i}>
+                <div key={i}>
+                    <Link to={route.href}>
                         <Button className="link" value={route.name} disabled={i === routes.length-1}></Button>
                     </Link>
                     { i < routes.length-1?
@@ -19,7 +19,7 @@ function Breadcrumbs({routes}) {
                         </svg> : null
                     }
                     
-                </>
+                </div>
                 )
             }
         </div>

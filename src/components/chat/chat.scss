@@ -7,7 +7,7 @@
         width:100%;
         height: 500px;
         overflow: scroll;
-        background: $font-white-color;
+        background: $bg-white;
         .messageWrapper {
             &:not(:first-child) {
                 margin-top: 10px;
@@ -15,6 +15,16 @@
         }
         form {
             margin-left: 20%;
+            width: 66%;
+            display: inline-block;
+            input {
+                width: 100%;
+            }
+        }
+        .icon {
+            vertical-align: top;
+            margin-top: 10px;
+            margin-left: 10px;
         }
     }
     input {
@@ -31,6 +41,10 @@
     .chat {
         .messageBox {
             padding: 50px;
+            form {
+                width: 70%;
+           
+            }
         }
         input {
             width: 80%;

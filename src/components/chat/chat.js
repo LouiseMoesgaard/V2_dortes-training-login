@@ -71,17 +71,22 @@ function Chat() {
         return replies.filter(reply => reply.replyTo === timestamp);
     }
 
+    const closeReply = ()=>{
+        setReply(false);
+        setReplyTo(null);
+    }
+
     return(
         <div className="chat">
             <div className="messageBox">
                 {
                     messages.map((message, i)=>
-                    <div className="messageWrapper">
+                    <div key={i}className="messageWrapper">
                             <Message 
                                 message={message} 
                                 user={getUser(message.uid)}
                                 callback={handleReply}
-                                key={i} />
+                                />
 
                                 {
                                     getReplies(message.timestamp).map((reply, j) => 
@@ -97,9 +102,10 @@ function Chat() {
                                 { replyTo && replyTo.timestamp === message.timestamp ?
                                 <>
                                     <form onSubmit={handleSubmit}>
-                                    <input type="text" onChange={handleChange} value={content}></input>
-                                    <Button type="submit" value="Send"/>
-                                </form>
+                                        <input type="text" onChange={handleChange} value={content}></input>
+                                        <Button type="submit" value="Send"/>
+                                    </form>
+                                    <Icon icon="closeBlack" onClick={()=>closeReply()}></Icon>
                                 </> : null
                                 }
                                 

@@ -1,6 +1,34 @@
 .savedPage {
     .intro{
         margin: 0 -30px;
+    } 
+    figure {
+        margin: 0;
+        height: 100%;
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .noExercise {
+        width: 60%;
+        margin: 3em auto;
+        text-align: center;
+    }
+    .ModalBody{
+        .buttons{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            button{
+                justify-self: center;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .savedPage .d-grid {
+        grid-template-columns: auto;
     }
 }
 
@@ -8,6 +36,14 @@
     .savedPage{
         .intro{
             margin: 0;
+        }
+
+        .exercise {
+            width: 70%;
+            margin: 3rem auto;
+            .base {
+                margin-left: 1rem;
+            }
         }
     }
     

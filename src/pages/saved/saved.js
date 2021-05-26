@@ -69,19 +69,20 @@ function Saved() {
                 <Header title="Dine Gemte øvelser"/>
 
                 <div className="intro" dangerouslySetInnerHTML={ { __html: post.content.rendered } }></div>
-
+                {exercises.length === 0?
+                    <p className="noExercise">Du har ingen gemte øvelser</p>: null
+                }
                 {exercises.map((item, i)=>{
                     return(
-                        <>
+                        <div className="exercise" key={i}>
                         <Link 
                         className="exercise" 
-                        to={`/categories/${item.trainingtype[0].id}/exercises/${item.id}`}
-                        key={i} 
+                        to={`/categories/${item.trainingtype[0].id}/exercises/${item.id}`} 
                         >
                             <Button className="item" value={item.title.rendered}></Button>
                         </Link>
                         <Button value="Slet" key={i+'_child'} onClick={()=>{setRemove(item); setOpenModal(true)}}></Button>
-                    </>
+                    </div>
                     )
 
                     
@@ -93,9 +94,10 @@ function Saved() {
             <Modal visible={openModal} title="er du helt sikker?" onClose={()=>setOpenModal(false)}>
             <p>Vil du virkelig slette {remove.title.rendered}?</p>
             <p>Denne proces kan ikke fortrydes</p>
-
+            <div className="buttons">
             <Button value="Anullér" onClick={()=>setOpenModal(false)}></Button>
             <Button value="Slet" onClick={()=>removeSaved()}></Button>
+            </div>
             </Modal>: null
             }
         </div> : null
