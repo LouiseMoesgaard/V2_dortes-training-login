@@ -4,7 +4,14 @@ button {
   cursor: pointer;
   &:disabled{
     cursor: initial;
-    color: $border-color-grey
+    &.link{
+    color: $border-color-grey!important;
+    }
+    &.base{
+      background-color: $disabled;
+      border-color: $border-color-grey;
+      color: $font-black-color;
+    }
   }
 
   &.icon {

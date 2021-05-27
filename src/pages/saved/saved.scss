@@ -10,9 +10,20 @@
             object-fit: cover;
         }
     }
+    .exerciseWrapper {
+        margin: 3rem auto;
+        .exercise{
+            width: 100%;
+        }
+        .base{
+            float: right;
+            margin: 0;
+        }
+    }
+    
     .noExercise {
         width: 60%;
-        margin: 3em auto;
+        margin: 3em auto 0 auto;
         text-align: center;
     }
     .ModalBody{
@@ -38,11 +49,16 @@
             margin: 0;
         }
 
-        .exercise {
+        .exerciseWrapper {
             width: 70%;
             margin: 3rem auto;
+            .exercise {
+                width: 70%;
+            }
             .base {
                 margin-left: 1rem;
+                margin-top: 15px;
+                float: unset;
             }
         }
     }

@@ -13,6 +13,7 @@ import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
 
 function Exercise({match:{params:{exercise_id}}}) {
     const [exercise, setExercise] = React.useState(null);
+    const [exercises, setExercises] = React.useState(null);
     const [user, setUser] = React.useState(null);
     const [routes, setRoutes] = React.useState(null);
 
@@ -41,6 +42,11 @@ function Exercise({match:{params:{exercise_id}}}) {
                     id: snap.key,
                     ...snap.val()
                 };
+                if(user.exercises){
+                    Wordpress.getExercises(user.exercises).then(exercises=>setExercises(exercises));
+                } else {
+                    user.exercises = [];
+                }
                 setUser(user)
             });
         })
@@ -50,19 +56,23 @@ function Exercise({match:{params:{exercise_id}}}) {
         let newExercises = user.exercises? user.exercises.slice(): [];
         newExercises.push(parseInt(exercise_id));
         AuthService.getDatabase().ref(`users/${user.id}/exercises`).set(newExercises);
+        setUser({...user, exercises: newExercises});
     }
+
+    const haveExercise = ()=> user.exercises.includes(parseInt(exercise_id))
+    
 
     
 
     return (
-        exercise && routes?
+        exercise && routes && user?
         <div className="ExercisePage">
             <Navigation/>
             <div className="content">
             <Breadcrumbs routes={routes}/>
             <div className="d-grid">
                 <Header title={exercise.title}/>
-                <Button value="Gem til favoritter" onClick={()=>saveExercise()}></Button>
+                <Button value="Gem til favoritter" disabled={haveExercise()} onClick={()=>saveExercise()}></Button>
             </div>
 
             <div className="bluebox d-grid">

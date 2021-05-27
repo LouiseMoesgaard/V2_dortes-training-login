@@ -74,7 +74,8 @@ function Saved() {
                 }
                 {exercises.map((item, i)=>{
                     return(
-                        <div className="exercise" key={i}>
+                        <div className="exerciseWrapper" key={i}>
+                            
                         <Link 
                         className="exercise" 
                         to={`/categories/${item.trainingtype[0].id}/exercises/${item.id}`} 
