@@ -6,6 +6,7 @@ import Wordpress from '../../services/wordpress';
 import Header from '../../components/header/header';
 import Button from '../../components/button/button.js';
 import {Link} from 'react-router-dom';
+import Loader from '../../components/loader/loader.js';
 
 
 function CategoryList(){
@@ -78,7 +79,7 @@ function CategoryList(){
                    
            
             </div>
-        </div> : null
+        </div> : <Loader/>
     )
 }
 

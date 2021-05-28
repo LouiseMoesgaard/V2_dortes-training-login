@@ -8,6 +8,7 @@ import Modal from '../../components/modal/modal.js';
 import AuthService from '../../services/auth.js';
 
 import './saved.scss';
+import Loader from '../../components/loader/loader.js';
 
 
 
@@ -15,7 +16,7 @@ import './saved.scss';
 function Saved() {
     const [user, setUser] = React.useState(null);
     const [post, setPost] = React.useState(null);
-    const [exercises, setExercises] = React.useState([]);
+    const [exercises, setExercises] = React.useState(null);
     const [remove, setRemove] = React.useState(null);
     const [openModal, setOpenModal] = React.useState(false);
 
@@ -96,12 +97,12 @@ function Saved() {
             <p>Vil du virkelig slette {remove.title.rendered}?</p>
             <p>Denne proces kan ikke fortrydes</p>
             <div className="buttons">
-            <Button value="Anullér" onClick={()=>setOpenModal(false)}></Button>
+            <Button className="cancel" value="Anullér" onClick={()=>setOpenModal(false)}></Button>
             <Button value="Slet" onClick={()=>removeSaved()}></Button>
             </div>
             </Modal>: null
             }
-        </div> : null
+        </div> : <Loader/>
 
     )
 

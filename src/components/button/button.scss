@@ -21,54 +21,70 @@ button {
     width: auto; 
     height: auto;
   }
-}
-
-.base {
-  width: 155px;
-  height: 40px;
-  left: 176px;
-  margin-top: 15px;
-
-  background: $call-to-action-color;
-  border: 1px solid $call-to-action-color;
-  box-sizing: border-box;
-
-  font-family: $h1-font;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  place-self: flex-end;
-  color: $font-white-color;
-}
-
-.link {
-  background: transparent;
-  border: none;
-  color: $call-to-action-color;
-}
-
-.item {
-  text-transform: uppercase;
-  font-size: 1rem;
-  font-family: $h1-font;
-  text-align: start;
-  cursor: pointer;
-  background-color: transparent;
-  border: transparent;
-  color: $font-black-color;
-  padding: $padding-button;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  border: 2px solid $border-color-grey;
-  margin: auto;
-  margin-bottom: 15px;
-  span {
-    flex-grow: 1;
+  &.base {
+    width: 155px;
+    height: 40px;
+    left: 176px;
+    margin-top: 15px;
+  
+    background: $call-to-action-color;
+    border: 1px solid $call-to-action-color;
+    box-sizing: border-box;
+  
+    font-family: $h1-font;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    place-self: flex-end;
+    color: $font-white-color;
   }
-  .triangle {
-    margin-right: 25px;
-    border-left: 16px solid $call-to-action-color;
-    border-bottom: 16px solid transparent;
-    border-top: 16px solid transparent;
+  
+  &.link {
+    background: transparent;
+    border: none;
+    color: $call-to-action-color;
+  }
+  
+  &.item {
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-family: $h1-font;
+    text-align: start;
+    cursor: pointer;
+    background-color: transparent;
+    border: transparent;
+    color: $font-black-color;
+    padding: $padding-button;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 2px solid $border-color-grey;
+    margin: auto;
+    margin-bottom: 15px;
+    span {
+      flex-grow: 1;
+    }
+    .triangle {
+      margin-right: 25px;
+      border-left: 16px solid $call-to-action-color;
+      border-bottom: 16px solid transparent;
+      border-top: 16px solid transparent;
+    }
+  }
+
+  &.cancel{
+    width: 155px;
+    height: 40px;
+    left: 176px;
+    margin-top: 15px;
+  
+    background: $background-color;
+    border: 1px solid $call-to-action-color;
+    box-sizing: border-box;
+  
+    font-family: $h1-font;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    place-self: flex-end;
+    color: $font-white-color;
   }
 }

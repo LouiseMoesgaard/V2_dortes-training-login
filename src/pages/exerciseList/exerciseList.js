@@ -7,6 +7,7 @@ import Button from '../../components/button/button';
 
 import './exerciseList.scss';
 import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
+import Loader from '../../components/loader/loader';
 
 function ExerciseList({ match: { params: { id } } }) {
     const [category, setCategory] = React.useState(null);
@@ -26,7 +27,7 @@ function ExerciseList({ match: { params: { id } } }) {
                 exercise: category.exercise
             });
             setRoutes([
-                {href:"/categories", name:"Kategorier"},
+                {href:"/categories", name:"Kategorioversigt"},
                 {href:`/categories/${category.id}/exercises`, name:`${category.title.rendered}`}
             ])
         })
@@ -49,7 +50,7 @@ function ExerciseList({ match: { params: { id } } }) {
 
                     })}
                 </div>
-            </div> : null
+            </div> : <Loader/>
     );
 }
 

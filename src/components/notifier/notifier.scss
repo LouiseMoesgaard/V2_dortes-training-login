@@ -1,0 +1,54 @@
+@import '../../styles/base.scss';
+
+.notifier{
+    background-color: $background-color;
+    padding: 5px 15px;
+    border-radius: 10px;
+    color: $font-white-color;
+    animation-duration: .2s;
+    animation-timing-function: ease-in-out;
+    transform: scaleX(0);
+}
+
+.left {
+    transform-origin: left;
+}
+
+.right {
+    transform-origin: right;
+}
+
+.isOut{
+    transform: scaleX(0);
+}
+
+.isIn {
+    transform: scaleX(1);
+}
+
+.notifyIn{
+    animation-name: notifyIn;
+    
+}
+
+.notifyOut{
+    animation-name: notifyOut;
+}
+
+@keyframes notifyIn {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes notifyOut {
+    from {
+        transform: scaleX(1);
+    }
+    to {
+        transform: scaleX(0);
+    }
+}

@@ -4,7 +4,7 @@ import Button from '../button/button';
 
 import './settings.scss';
 
-function Settings(){
+function Settings({onSave}){
 
     const [user, setUser] = React.useState(null);
     const [error, setError] = React.useState(null);
@@ -46,6 +46,7 @@ function Settings(){
             }
         }
         AuthService.getDatabase().ref(`users/${user.id}`).set(user);
+        onSave();
     }
 
     return (

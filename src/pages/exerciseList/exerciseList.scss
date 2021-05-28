@@ -1,8 +1,16 @@
 
 .ExercisePage{
     .exercise{
-        width: 60%;
+        width: 100%;
       margin: 3em auto;
       display: block;
     }
+}
+
+@media only screen and (min-width: 768px) {
+    .ExercisePage{
+        .exercise{
+            width: 80%;
+        }
+    } 
 }

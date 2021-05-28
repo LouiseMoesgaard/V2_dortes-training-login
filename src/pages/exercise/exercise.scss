@@ -8,6 +8,15 @@
     .content{
         &>.d-grid{
             margin: 0;
+            position: relative;
+            button {
+                margin-bottom: 2rem;
+            }
+            .notifier{
+                position: absolute;
+                top: 60px;
+                right: 0;
+            }
         }
         &>.bluebox {
             margin: 0 -30px;
@@ -41,9 +50,20 @@
         .content{
             &>.d-grid{
                 margin: 0;
+                .notifier{
+                    position: absolute;
+                    top: 25px;
+                    right: 165px;
+                }
             }
             &>.bluebox {
                 margin: 0;
+            }
+            .bluebox.chat{
+                margin: 0 -35px;
+            }
+            iframe{
+                height: 350px;
             }
         }
     }
@@ -57,10 +77,16 @@
         p {
           font-family: $p-font;
         }
+        .content {
+            .bluebox.chat{
+                margin: 0 -120px;
+            }
+        }
     
         iframe{
-            width: 100%;
-            height: 600px;
+            width: 700px;
+            height: 400px;
+            display: block;
             margin: 3em auto;
         }
     }
