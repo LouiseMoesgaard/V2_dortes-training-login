@@ -13,11 +13,31 @@ import AuthService from './services/auth';
 
 
 function App() {
-  const [render, setRender] = React.useState(false)
+  const [render, setRender] = React.useState(false);
+  const [user, setUser] = React.useState(null);
   React.useEffect(()=>{
-    AuthService.authHook(()=>{
+    AuthService.authHook((user)=>{
       setRender(true);
+      if(user) {
+      AuthService.getDatabase().ref('users').orderByChild("uid").equalTo(AuthService.currentUser().uid)
+        .once("value", (snapshot)=>{
+            let user;
+            snapshot.forEach(function(snap) {
+                user = {
+                    id: snap.key,
+                    ...snap.val()
+                };
+                setUser(user)
+            });
+            AuthService.getDatabase().ref(`users/${user.id}`).on('value', snapshot=>{
+              setUser({...snapshot.val()})
+             
+            })
+           
+        })
+      }
     });
+    
   }, [])
   return (
     render ?
@@ -25,10 +45,10 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/" component={Login} />
-          <Route exact path="/categories" component={CategoryList} />
+          <Route exact path="/categories" render={(props)=>(<CategoryList {...props} user={user}/>)} />
           <Route exact path="/categories/:id/exercises" component={ExerciseList} />
-          <Route path="/categories/:id/exercises/:exercise_id" component={Exercise} />
-          <Route path="/saved" component={Saved} />
+          <Route path="/categories/:id/exercises/:exercise_id" render={(props)=>(<Exercise {...props} user={user}/>)} />
+          <Route path="/saved" render={(props)=>(<Saved {...props} user={user}/>)} />
 
         </Switch>
       </div>

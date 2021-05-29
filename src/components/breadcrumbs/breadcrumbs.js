@@ -11,7 +11,7 @@ function Breadcrumbs({routes}) {
                 routes.map((route,i)=>
                 <div key={i}>
                     <Link to={route.href}>
-                        <Button className="link" value={route.name} disabled={i === routes.length-1}></Button>
+                        <Button className="link" value={route.name.toUpperCase()} disabled={i === routes.length-1}></Button>
                     </Link>
                     { i < routes.length-1?
                         <svg xmlns="http://www.w3.org/2000/svg">

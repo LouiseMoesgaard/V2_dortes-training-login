@@ -32,11 +32,6 @@
     width: 100%;
     margin: 3em auto;
     
-    form {
-      display: grid;
-      grid-gap: 10px;
-      grid-template-columns: 80% 15%;
-    }
 
     input {
       padding: 10px;
@@ -48,10 +43,6 @@
       &:focus-visible{
         outline: $call-to-action-color;
       }
-    }
-    button {
-      margin: 0;
-      width: 50px;
     }
 
     .searchbar {
@@ -83,15 +74,8 @@
     }
 
     .search-container {
-      width: 80%;
-      form {
-        grid-template-columns: 80% auto;
-        button {
-          width: 155px;
-          float: right;
-          place-self: end;
-        }
-      }
+      width: 40%;
+
     }
   }
   

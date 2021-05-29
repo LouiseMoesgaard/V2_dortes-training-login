@@ -3,7 +3,7 @@ const baseEndpoint = "https://ariadna.dk/kea/Dortes-Training/wp/wp-json/wp/v2/";
 class Wordpress {
 
     static getpost = async (id) => {
-        const response = await fetch(baseEndpoint + `posts/${id}`)
+        const response = await fetch(baseEndpoint + `login_pages/${id}`)
         return await response.json();
     }
 

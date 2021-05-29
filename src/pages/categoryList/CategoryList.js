@@ -9,15 +9,13 @@ import {Link} from 'react-router-dom';
 import Loader from '../../components/loader/loader.js';
 
 
-function CategoryList(){
+function CategoryList({user}){
     const [categories, setCategories] = React.useState(null);
     const [filteredCategories, setFilteredCategories] = React.useState(null);
     const [post, setPost] = React.useState(null);
-    const [search, setSearch] = React.useState('');
-    const [user, setUser] = React.useState(null);
 
     React.useEffect(()=>{
-        Wordpress.getpost(257).then((post)=>{
+        Wordpress.getpost(412).then((post)=>{
             setPost(post);
         });
         
@@ -31,38 +29,36 @@ function CategoryList(){
             setCategories(cats);
             setFilteredCategories(cats);
         })
-        AuthService.getDatabase().ref('users').orderByChild("uid").equalTo(AuthService.currentUser().uid)
-        .once("value", (snapshot)=>{
-            snapshot.forEach(function(snap) {
-                const user = {
-                    id: snap.key,
-                    ...snap.val()
-                };
-                setUser(user)
-            });
-        })
+        
     }, [])
 
     const doSearch = (e)=> {
-        e.preventDefault();
-        setFilteredCategories(categories.filter(cat=>cat.title.includes(search)));
+        if(e.target.value.length === 0){
+            setFilteredCategories(categories);
+        } else {
+        setFilteredCategories(categories.filter(cat=>cat.title.toLowerCase().includes(e.target.value.toLowerCase())));
+        }
     }
 
     return(
-        filteredCategories && post && user?
+        filteredCategories && post?
         <div className="categoryPage">
             <Navigation/>
             <div className="content">
                 <Header title={`Velkommen til din online træning, ${user.username}`}/>
 
-                <div className="intro" dangerouslySetInnerHTML={ { __html: post.content.rendered } }></div>
+                <div className="intro">
+                    <div className="d-grid">
+                    <div className="bluebox" dangerouslySetInnerHTML={ { __html: post.tekst } }></div>
+                    <img src={post.billede.guid}/>
+                    </div>
+                </div>
 
                 <div className="category-container">
                     <h1>Kategorier</h1>
                     <div className="search-container">
-                    <form onSubmit={(e)=>doSearch(e)}>
-                        <input id="searchbar" className="searchbar" placeholder="Søg i kategorier" value={search} onChange={e=>setSearch(e.target.value)}/>
-                        <Button type="submit" value="søg"/>
+                    <form>
+                        <input id="searchbar" className="searchbar" placeholder="Søg i kategorier" onChange={e=>doSearch(e)}/>
                     </form>
                 </div>
                     {filteredCategories.map((item, i) => {

@@ -11,14 +11,10 @@ import Loader from '../../components/loader/loader';
 
 function ExerciseList({ match: { params: { id } } }) {
     const [category, setCategory] = React.useState(null);
-    const [post, setPost] = React.useState(null);
     const [routes, setRoutes] = React.useState(null);
 
     React.useEffect(() => {
-        Wordpress.getpost(257).then((post) => {
-            setPost(post);
-        });
-
+    
         Wordpress.getCategory(id).then((category) => {
             setCategory({
                 id: category.id,

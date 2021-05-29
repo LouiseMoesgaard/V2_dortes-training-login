@@ -13,16 +13,13 @@ import Notifier from '../../components/notifier/notifier';
 import Loader from '../../components/loader/loader';
 
 
-function Exercise({match:{params:{exercise_id}}}) {
+function Exercise({match: { params: { exercise_id } }, user}) {
     const [exercise, setExercise] = React.useState(null);
     const [exercises, setExercises] = React.useState(null);
-    const [user, setUser] = React.useState(null);
     const [trigger, setTrigger] = React.useState(null);
     const [routes, setRoutes] = React.useState(null);
 
     React.useEffect(()=>{
-        console.log();
-
         Wordpress.getExercise(exercise_id).then((exercise)=>{
             setExercise({
                 title: exercise.title.rendered,
@@ -38,28 +35,15 @@ function Exercise({match:{params:{exercise_id}}}) {
             ])
         })
 
-        AuthService.getDatabase().ref('users').orderByChild("uid").equalTo(AuthService.currentUser().uid)
-        .once("value", (snapshot)=>{
-            snapshot.forEach(function(snap) {
-                const user = {
-                    id: snap.key,
-                    ...snap.val()
-                };
-                if(user.exercises){
-                    Wordpress.getExercises(user.exercises).then(exercises=>setExercises(exercises));
-                } else {
-                    user.exercises = [];
-                }
-                setUser(user)
-            });
-        })
+        if(user.exercises){
+            Wordpress.getExercises(user.exercises).then(exercises=>setExercises(exercises));
+        }
     }, [])
 
     const saveExercise = ()=> {
         let newExercises = user.exercises? user.exercises.slice(): [];
         newExercises.push(parseInt(exercise_id));
         AuthService.getDatabase().ref(`users/${user.id}/exercises`).set(newExercises);
-        setUser({...user, exercises: newExercises});
         setTrigger(true);
     }
 
@@ -70,10 +54,6 @@ function Exercise({match:{params:{exercise_id}}}) {
         let newExercises = user.exercises? user.exercises.slice(): [];
         newExercises = newExercises.filter(exercise=>exercise !== parseInt(exercise_id))
         AuthService.getDatabase().ref(`users/${user.id}/exercises`).set(newExercises).then(()=>{
-            setUser({
-                ...user,
-                exercises: newExercises
-            })
             if(newExercises.length > 0){
                 Wordpress.getExercises(newExercises).then(exercises=>setExercises(exercises));
             } else {
@@ -95,7 +75,7 @@ function Exercise({match:{params:{exercise_id}}}) {
     
 
     return (
-        exercise && routes && user?
+        exercise && routes?
         <div className="ExercisePage">
             <Navigation/>
             <div className="content">
@@ -118,7 +98,7 @@ function Exercise({match:{params:{exercise_id}}}) {
 
             <div className="bluebox chat">
                 <Header title="Velkommen, har du nogle kommentarer?"/>
-                <Chat exercixeId={parseInt(exercise_id)}/>
+                <Chat exercixeId={parseInt(exercise_id)} user={user}/>
             </div>
             </div>
         </div> : <Loader/>

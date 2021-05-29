@@ -6,8 +6,7 @@ import './chat.scss';
 import Button from '../button/button';
 import Icon from '../icon/icon';
 
-function Chat({exercixeId}) {
-    const [user, setUser] = React.useState(AuthService.currentUser());
+function Chat({exercixeId, user}) {
     const [content, setContent] = React.useState("");
     const [messages, setMessages] = React.useState([]);
     const [users, setUsers] = React.useState([]);

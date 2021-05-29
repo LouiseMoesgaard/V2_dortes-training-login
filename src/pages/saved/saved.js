@@ -22,7 +22,7 @@ function Saved() {
 
 
     React.useEffect(()=>{
-        Wordpress.getpost(272).then((post)=>{
+        Wordpress.getpost(415).then((post)=>{
             setPost(post);
         });
 
@@ -69,7 +69,12 @@ function Saved() {
             <div className="content">
                 <Header title="Dine Gemte øvelser"/>
 
-                <div className="intro" dangerouslySetInnerHTML={ { __html: post.content.rendered } }></div>
+                <div className="intro">
+                    <div className="d-grid">
+                        <div className="bluebox" dangerouslySetInnerHTML={ { __html: post.tekst } }></div>
+                        <img src={post.billede.guid}/>
+                    </div>
+                </div>
                 {exercises.length === 0?
                     <p className="noExercise">Du har ingen gemte øvelser</p>: null
                 }

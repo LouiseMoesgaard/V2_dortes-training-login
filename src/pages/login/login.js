@@ -17,7 +17,7 @@ function Login() {
     
 
     React.useEffect(()=>{
-        Wordpress.getpost(250).then((post)=>{
+        Wordpress.getpost(417).then((post)=>{
             setPost(post);
         });
         
@@ -55,7 +55,7 @@ return(
     <div id="login">
 
         <Header title="Log ind"/>
-        <div className="bluebox" dangerouslySetInnerHTML={ { __html: post.content.rendered } }></div>
+        <div className="bluebox" dangerouslySetInnerHTML={ { __html: post.tekst } }></div>
         
         <form onSubmit={handleSubmit}>
         {
