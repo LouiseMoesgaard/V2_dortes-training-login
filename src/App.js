@@ -20,7 +20,7 @@ function App() {
       setRender(true);
       if(user) {
       AuthService.getDatabase().ref('users').orderByChild("uid").equalTo(AuthService.currentUser().uid)
-        .once("value", (snapshot)=>{
+        .on("value", (snapshot)=>{
             let user;
             snapshot.forEach(function(snap) {
                 user = {
@@ -29,10 +29,6 @@ function App() {
                 };
                 setUser(user)
             });
-            AuthService.getDatabase().ref(`users/${user.id}`).on('value', snapshot=>{
-              setUser({...snapshot.val()})
-             
-            })
            
         })
       }
