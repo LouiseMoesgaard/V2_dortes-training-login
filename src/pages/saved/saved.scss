@@ -11,13 +11,14 @@
         }
     }
     .exerciseWrapper {
-        margin: 3rem auto;
+        margin: 2rem auto;
         .exercise{
             width: 100%;
         }
-        .base{
+        .cancel{
             float: right;
-            margin: 0;
+            margin-bottom: 30px;
+            margin-top: 0px;
         }
     }
     
@@ -53,16 +54,17 @@
         }
 
         .exerciseWrapper {
-            width: 70%;
+            width: 90%;
             margin: 3rem auto;
             .exercise {
                 width: 70%;
             }
-            .base {
-                margin-left: 1rem;
+            .cancel{
+                float: right;
+                margin-bottom: 0px;
                 margin-top: 15px;
-                float: unset;
             }
+        
         }
     }
     

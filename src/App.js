@@ -9,16 +9,21 @@ import ExerciseList from "./pages/exerciseList/exerciseList";
 import Exercise from './pages/exercise/exercise';
 import Saved from './pages/saved/saved';
 import AuthService from './services/auth';
+import NewUser from "./pages/newUser/new-user";
 
 
 
 function App() {
   const [render, setRender] = React.useState(false);
   const [user, setUser] = React.useState(null);
+  const [uid, setUid] = React.useState(null);
+  const[newUsermail, setNewUserMail] = React.useState(null);
+
   React.useEffect(()=>{
     AuthService.authHook((user)=>{
-      setRender(true);
       if(user) {
+        setUid(user.uid);
+        setNewUserMail(user.email);
       AuthService.getDatabase().ref('users').orderByChild("uid").equalTo(AuthService.currentUser().uid)
         .on("value", (snapshot)=>{
             let user;
@@ -32,6 +37,7 @@ function App() {
            
         })
       }
+      setRender(true);
     });
     
   }, [])
@@ -41,10 +47,11 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/" component={Login} />
-          <Route exact path="/categories" render={(props)=>(<CategoryList {...props} user={user}/>)} />
+          <Route exact path="/new-user" render={()=>(<NewUser user={user} uid={uid} email={newUsermail}/>)} />
+          <Route exact path="/categories" render={(props)=>(user?<CategoryList {...props} user={user}/>: null)} />
           <Route exact path="/categories/:id/exercises" component={ExerciseList} />
-          <Route path="/categories/:id/exercises/:exercise_id" render={(props)=>(<Exercise {...props} user={user}/>)} />
-          <Route path="/saved" render={(props)=>(<Saved {...props} user={user}/>)} />
+          <Route path="/categories/:id/exercises/:exercise_id" render={(props)=>(user?<Exercise {...props} user={user}/>: null)} />
+          <Route path="/saved" render={(props)=>(user?<Saved {...props} user={user}/>: null)} />
 
         </Switch>
       </div>

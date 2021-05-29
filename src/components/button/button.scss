@@ -64,7 +64,6 @@ button {
       flex-grow: 1;
     }
     .triangle {
-      margin-right: 25px;
       border-left: 16px solid $call-to-action-color;
       border-bottom: 16px solid transparent;
       border-top: 16px solid transparent;
@@ -86,5 +85,16 @@ button {
     text-transform: uppercase;
     place-self: flex-end;
     color: $font-white-color;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  
+  button{
+    &.item{
+      .triangle{
+        margin-right: 25px;
+      }
+    }
   }
 }

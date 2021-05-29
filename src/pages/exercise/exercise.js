@@ -47,7 +47,7 @@ function Exercise({match: { params: { exercise_id } }, user}) {
         setTrigger(true);
     }
 
-    const haveExercise = ()=> user.exercises.includes(parseInt(exercise_id))
+    const haveExercise = ()=> user.exercise && user.exercises.includes(parseInt(exercise_id))
 
     const removeSaved = () => {
         setTrigger(false);

@@ -13,8 +13,7 @@ import Loader from '../../components/loader/loader.js';
 
 
 
-function Saved() {
-    const [user, setUser] = React.useState(null);
+function Saved({user}) {
     const [post, setPost] = React.useState(null);
     const [exercises, setExercises] = React.useState(null);
     const [remove, setRemove] = React.useState(null);
@@ -25,32 +24,18 @@ function Saved() {
         Wordpress.getpost(415).then((post)=>{
             setPost(post);
         });
-
-
-        AuthService.getDatabase().ref('users').orderByChild("uid").equalTo(AuthService.currentUser().uid)
-        .once("value", (snapshot)=>{
-            let user;
-            snapshot.forEach(function(snap) {
-                user = {
-                    id: snap.key,
-                    ...snap.val()
-                };
-                setUser(user)
-            });
-            if(user.exercises){
-                Wordpress.getExercises(user.exercises).then(exercises=>setExercises(exercises));
-            }    
-        })
+        if(user.exercises){
+            Wordpress.getExercises(user.exercises).then(exercises=>setExercises(exercises));
+        } else {
+            setExercises([]);
+        }   
+    
     }, [])
 
     const removeSaved = () => {
         let newExercises = user.exercises? user.exercises.slice(): [];
         newExercises = newExercises.filter(exercise=>exercise !== remove.id)
         AuthService.getDatabase().ref(`users/${user.id}/exercises`).set(newExercises).then(()=>{
-            setUser({
-                ...user,
-                exercises: newExercises
-            })
             if(newExercises.length > 0){
                 Wordpress.getExercises(newExercises).then(exercises=>setExercises(exercises));
             } else {
@@ -63,7 +48,7 @@ function Saved() {
 
     return(
 
-        post && user && exercises?
+        post && exercises?
         <div className="savedPage">
             <Navigation/>
             <div className="content">
@@ -88,7 +73,7 @@ function Saved() {
                         >
                             <Button className="item" value={item.title.rendered}></Button>
                         </Link>
-                        <Button value="Slet" key={i+'_child'} onClick={()=>{setRemove(item); setOpenModal(true)}}></Button>
+                        <Button value="Slet" className="cancel" key={i+'_child'} onClick={()=>{setRemove(item); setOpenModal(true)}}></Button>
                     </div>
                     )
 

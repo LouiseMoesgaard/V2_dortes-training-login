@@ -5,8 +5,9 @@
     .messageBox {
         padding: 20px;
         width:100%;
-        height: 500px;
+        height: 400px;
         overflow: scroll;
+        @include scrollbars(5px, $call-to-action-color, $bg-white);
         background: $bg-white;
         .messageWrapper {
             &:not(:first-child) {
@@ -17,24 +18,31 @@
             margin-left: 20%;
             width: 66%;
             display: inline-block;
-            input {
+            textarea {
                 width: 100%;
+                resize: none;
+                height: 80px;
             }
         }
         .icon {
             vertical-align: top;
-            margin-top: 10px;
+            margin-top: 55px;
             margin-left: 10px;
         }
     }
-    input {
-        padding: 10px;
-        width: 100%;
-        height: 40px;
-        background: #F9F8F7;
-        border: 2px solid #C6CDCD;
-        box-sizing: border-box;
-      }
+    form {
+        margin: 30px auto;
+        textarea {
+            padding: 10px;
+            width: 100%;
+            height: 80px;
+            resize: vertical;
+            background: #F9F8F7;
+            border: 2px solid #C6CDCD;
+            box-sizing: border-box;
+        }
+    }
+    
 }
 
 @media only screen and (min-width: 1024px) {
@@ -46,9 +54,17 @@
            
             }
         }
-        input {
-            width: 80%;
-            margin-right: 25px;
+        form{
+            display: block;
+            width: 90%;
+            button{
+                vertical-align: top;
+            }
+            textarea {
+                width: 80%;
+                margin-right: 25px;
+            }
+
         }
     }
 

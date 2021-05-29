@@ -102,7 +102,7 @@ function Chat({exercixeId, user}) {
                                 { replyTo && replyTo.timestamp === message.timestamp ?
                                 <>
                                     <form onSubmit={handleSubmit}>
-                                        <input type="text" onChange={handleChange} value={content}></input>
+                                        <textarea type="text" onChange={handleChange} value={content}></textarea>
                                         <Button type="submit" value="Send"/>
                                     </form>
                                     <Icon icon="closeBlack" onClick={()=>closeReply()}></Icon>
@@ -116,7 +116,7 @@ function Chat({exercixeId, user}) {
             </div>
             { !reply?
             <form onSubmit={handleSubmit}>
-                <input type="text" onChange={handleChange} value={content}></input>
+                <textarea type="text" onChange={handleChange} value={content}></textarea>
                 <Button type="submit" value="Send"/>
             </form>: null
             }

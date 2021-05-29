@@ -1,0 +1,27 @@
+@import '../../styles/base.scss';
+
+.newUserPage{
+    .Modal{
+        .ModalBody {
+            form {
+                label{
+                    display: block;
+                    &:not(:first-child){
+                        margin-top: 10px;
+                    } 
+                    input {
+                        padding: 10px;
+                        width: 100%;
+                        height: 40px;
+                        background: #F9F8F7;
+                        border: 2px solid #C6CDCD;
+                        box-sizing: border-box;
+                        &:focus-visible{
+                            outline: $call-to-action-color;
+                        }
+                    } 
+                }
+            }
+        }
+    }
+}

@@ -11,7 +11,12 @@ function Message({message, user, callback, indent}){
 
     return (
         <div className={`message ${indent? 'indent' : ''}`} onClick={()=>callback?callback(message): null}>
-            <p className="userName">{user.username}</p>
+            <p className="userName">
+                <svg height="15" width="15">
+                    <circle cx="7" cy="8" r="5" stroke-width="1" />
+                </svg>
+                {user.username}
+            </p>
             <p className="messageContent">{message.content}</p>
             <p className="time">{formatTime(message.timestamp)}</p>
         </div>

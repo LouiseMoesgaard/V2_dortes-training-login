@@ -25,6 +25,14 @@
         font-weight: bolder;
         text-transform: uppercase;
         grid-area: box1;
+
+        svg{
+            margin-top: -5px;
+            margin-right: 15px;
+            vertical-align: middle;
+            fill: $border-color-grey;
+            stroke: $font-black-color;
+        }
     }
     .time {
         grid-area: box2;
@@ -39,7 +47,8 @@
     .message{
         grid-template-areas: 
         "box1 box3 box2";
-        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-columns: 1fr 6fr 1fr;
+        grid-gap: 50px;
         &.indent {
             margin-left: 20%;
         }
@@ -49,6 +58,7 @@
         .userName {
             font-weight: bolder;
             text-transform: uppercase;
+            justify-self: flex-end;
         }
         .time {
             justify-self: flex-end;

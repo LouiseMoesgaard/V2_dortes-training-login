@@ -19,7 +19,7 @@ auth.onAuthStateChanged(user=> {
   if(user) {
     currentUser = user;
     if(window.location.pathname === "/") {
-      window.location.href = "/categories";
+      window.location.href = "/new-user";
     }
   } else {
       currentUser = null;

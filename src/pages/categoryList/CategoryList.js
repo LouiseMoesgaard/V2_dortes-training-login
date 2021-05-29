@@ -61,6 +61,7 @@ function CategoryList({user}){
                         <input id="searchbar" className="searchbar" placeholder="Søg i kategorier" onChange={e=>doSearch(e)}/>
                     </form>
                 </div>
+                <div className="categories-container">
                     {filteredCategories.map((item, i) => {
                 return (
                         <Link className="category" to={`/categories/${item.id}/exercises`} key={i} >
@@ -70,6 +71,7 @@ function CategoryList({user}){
                          );
                     
                     })}
+                    </div>
 
                 </div>
                    
