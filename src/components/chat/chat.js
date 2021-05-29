@@ -6,7 +6,7 @@ import './chat.scss';
 import Button from '../button/button';
 import Icon from '../icon/icon';
 
-function Chat() {
+function Chat({exercixeId}) {
     const [user, setUser] = React.useState(AuthService.currentUser());
     const [content, setContent] = React.useState("");
     const [messages, setMessages] = React.useState([]);
@@ -23,7 +23,7 @@ function Chat() {
             });
             setUsers(users);
           });
-        AuthService.getDatabase().ref("chats").on("value", snapshot => {
+        AuthService.getDatabase().ref("chats").orderByChild("exercise").equalTo(exercixeId).on("value", snapshot => {
             let chats = [];
             let replies = [];
             snapshot.forEach((snap) => {
@@ -43,7 +43,8 @@ function Chat() {
         const m = {
             content: content, 
             timestamp: Date.now(), 
-            uid: user.uid
+            uid: user.uid,
+            exercise: exercixeId
         };
         if(reply){
             m.replyTo = replyTo.timestamp;

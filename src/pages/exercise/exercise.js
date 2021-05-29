@@ -118,7 +118,7 @@ function Exercise({match:{params:{exercise_id}}}) {
 
             <div className="bluebox chat">
                 <Header title="Velkommen, har du nogle kommentarer?"/>
-                <Chat/>
+                <Chat exercixeId={parseInt(exercise_id)}/>
             </div>
             </div>
         </div> : <Loader/>
