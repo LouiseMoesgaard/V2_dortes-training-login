@@ -13,7 +13,7 @@ function Message({message, user, callback, indent}){
         <div className={`message ${indent? 'indent' : ''}`} onClick={()=>callback?callback(message): null}>
             <p className="userName">
                 <svg height="15" width="15">
-                    <circle cx="7" cy="8" r="5" stroke-width="1" />
+                    <circle cx="7" cy="8" r="5" strokeWidth="1" />
                 </svg>
                 {user.username}
             </p>

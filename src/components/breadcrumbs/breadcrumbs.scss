@@ -7,9 +7,12 @@
     svg {
         height:10px;
         width: 10px;
+        margin: 0 5px;
         fill: $call-to-action-color;
     }
     button.link{
+        font-family: 'merriweather';
         color: $font-black-color;
+        padding: 0
     }
 }

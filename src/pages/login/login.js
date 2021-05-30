@@ -59,9 +59,9 @@ return(
         
         <form onSubmit={handleSubmit}>
         {
-            loginError? <p className="alert">E-mail eller password er forkert.</p>: null
+            loginError? <p className="alert">Email eller password er forkert.</p>: null
         }
-            <label htmlFor="email">E-mail
+            <label htmlFor="email">Email
             <input type="email" id="email" name="email" placeholder="example@gmail.com"/>
             </label>
 
@@ -76,12 +76,12 @@ return(
             </p>
         </form> 
             <Modal visible={showReset} onClose={closeModal} title="nulstil password?">
-                <p>Indtast din e-mail herunder, så sender vi dig et link til at nustille dit password</p>
+                <p>Indtast din email herunder, så sender vi dig et link til at nustille dit password</p>
                 <form onSubmit={resetPassword}>
                     {
                     resetError? <p className="alert">Der er ingen brugere koblet til denne email. Kontakt din arbejsplads for yderligere vejledning.</p>: null
                     }
-                    <label htmlFor="email">E-mail
+                    <label htmlFor="email">Email
                         <input type="email" name="email" placeholder="example@gmail.com" required={true} tabIndex="1"/>
                     </label>
                     <Button type="submit" value="send" tabIndex="1"/>

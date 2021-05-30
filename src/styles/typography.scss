@@ -11,20 +11,16 @@ label {
 h1,
 h2 {
   font-family: $h1-font;
-  font-size: 1.25rem;
+  font-size: 20px;
   font-weight: lighter;
-  line-height: 30px;
+  line-height: 36px;
   text-transform: uppercase;
   margin-bottom: 4vh;
   width: fit-content;
-  border-bottom: 3px solid;
+  border-bottom: 2px solid;
   border-image: linear-gradient(to right, transparent 10%, $call-to-action-color 10%) 2;
-}
-
-h3 {
-  /* font-family: $main-font; */
-  line-height: 23px;
-  margin: 20px 0;
+  color: $font-black-color;
+  letter-spacing: 2px;
 }
 
 a {
@@ -41,4 +37,5 @@ li {
   line-height: 28px;
   margin: 5px 0;
   font-size: 0.9rem;
+  color: $font-black-color;
 }

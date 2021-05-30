@@ -9,6 +9,12 @@
         overflow: scroll;
         @include scrollbars(5px, $call-to-action-color, $bg-white);
         background: $bg-white;
+        &>p{
+            margin: 0 auto;
+            width: fit-content;
+            color: $font-black-color;
+            font-size: 1rem;
+        }
         .messageWrapper {
             &:not(:first-child) {
                 margin-top: 10px;
@@ -28,6 +34,7 @@
             vertical-align: top;
             margin-top: 55px;
             margin-left: 10px;
+            cursor: pointer;
         }
     }
     form {
@@ -59,6 +66,7 @@
             width: 90%;
             button{
                 vertical-align: top;
+                margin: 0;
             }
             textarea {
                 width: 80%;

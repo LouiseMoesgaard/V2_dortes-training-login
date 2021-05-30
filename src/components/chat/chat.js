@@ -80,6 +80,10 @@ function Chat({exercixeId, user}) {
         <div className="chat">
             <div className="messageBox">
                 {
+                    messages.length === 0 ? <p> Endnu ingen kommentarer</p> : null
+                }
+                
+                {
                     messages.map((message, i)=>
                     <div key={i}className="messageWrapper">
                             <Message 
@@ -114,12 +118,10 @@ function Chat({exercixeId, user}) {
                     
                 }
             </div>
-            { !reply?
             <form onSubmit={handleSubmit}>
-                <textarea type="text" onChange={handleChange} value={content}></textarea>
-                <Button type="submit" value="Send"/>
-            </form>: null
-            }
+                <textarea disabled={reply} type="text" onChange={handleChange} value={content}></textarea>
+                <Button disabled={reply} type="submit" value="Send"/>
+            </form>
         </div>
 
 

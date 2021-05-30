@@ -67,7 +67,9 @@ img {
 .bluebox {
   padding: 30px;
   background-color: $background-color;
-  color: $font-white-color;
+  p, h1{
+    color: $font-white-color;
+  }
 }
 
 @media only screen and (min-width: 768px) {

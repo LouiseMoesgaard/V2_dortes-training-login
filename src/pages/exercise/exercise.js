@@ -97,7 +97,7 @@ function Exercise({match: { params: { exercise_id } }, user}) {
             <iframe src={exercise.video}></iframe>
 
             <div className="bluebox chat">
-                <Header title="Velkommen, har du nogle kommentarer?"/>
+                <Header title="Diskussion om øvelsen"/>
                 <Chat exercixeId={parseInt(exercise_id)} user={user}/>
             </div>
             </div>
