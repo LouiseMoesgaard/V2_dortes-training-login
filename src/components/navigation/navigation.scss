@@ -10,9 +10,23 @@ nav {
     padding: 5px 35px 0 35px;
     z-index: 5;
     .logo {
-        height: 60px;
-        width: 200px;
+        height: 40px;
+        position: fixed;
+        top: 10px;
         display: inline-block;
+        img{
+            height: 100%;
+            width: auto;
+        }
+
+        &.desktop_logo{
+            height: 60px;
+            display: inline-block;
+            img{
+                height: 100%;
+                width: auto;
+            }
+        }
     }
 
     .burger{

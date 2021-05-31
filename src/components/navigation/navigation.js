@@ -9,6 +9,8 @@ import gear from '../../medier/icons/gear.png';
 import './navigation.scss';
 import Settings from '../settings/settings';
 import Responsiveness from '../../services/responsiveness';
+import logo from '../../medier/Logo.svg';
+import logoDark from '../../medier/Logo_dark.svg';
 
 function Navigation(props) {
     const [menuHidden, setmenuHidden] = useState(true);
@@ -36,7 +38,8 @@ function Navigation(props) {
 
     return (
         <nav className={`${isMobile? 'nav-green' : 'nav-white'}`}>     
-                <div className="logo">
+                <div className={`logo ${!isMobile?'desktop_logo':''}`}>
+                    <img src={isMobile?logoDark:logo}/>
                 </div>
 
                 { isMobile?
