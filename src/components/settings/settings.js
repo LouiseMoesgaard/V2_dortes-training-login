@@ -52,18 +52,18 @@ function Settings({onSave}){
     return (
         user?
         <form className="userSettings" onSubmit={saveData}>
-            <label htmlFor="username">Brugernavn:
+            <label htmlFor="username">Brugernavn
                 <input type="text" name="username" value={user.username} onChange={(e)=>setUser({...user, username: e.target.value})}/>
             </label>
-            <label htmlFor="email">Email:
+            <label htmlFor="email">Email
                 <input type="email" name="email" value={user.email} onChange={(e)=>{setUser({...user, email: e.target.value}); setNewEmail(e.target.value)}}/>
             </label>
-            <label htmlFor="password">Nyt password:
+            <label htmlFor="password">Nyt password
                 <input type="password" name="password" onChange={(e)=>setNewPassword(e.target.value)}/>
             </label>
             {
                 newPassword?
-                <label htmlFor="verifyPassword">Gentag password:
+                <label htmlFor="verifyPassword">Gentag password
                     <input type="password" name="verifyPassword" onChange={e=>setVerifyNewPassword(e.target.value)}/>
                 </label>: null
             }

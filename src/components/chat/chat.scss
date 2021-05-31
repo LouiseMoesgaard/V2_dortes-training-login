@@ -69,12 +69,20 @@
                 margin: 0;
             }
             textarea {
-                width: 80%;
+                width: 70%;
                 margin-right: 25px;
             }
 
         }
     }
+}
+@media only screen and (min-width: 1420px) {
+    .chat {
+        form{
+            textarea {
+                width: 80%;
+            }
 
-
+        }
+    }
 }

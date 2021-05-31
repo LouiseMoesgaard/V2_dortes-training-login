@@ -39,20 +39,22 @@ function Chat({exercixeId, user}) {
 
     const handleSubmit = (event)=>{
         event.preventDefault();
-        const m = {
-            content: content, 
-            timestamp: Date.now(), 
-            uid: user.uid,
-            exercise: exercixeId
-        };
-        if(reply){
-            m.replyTo = replyTo.timestamp;
+        if(content){
+            const m = {
+                content: content, 
+                timestamp: Date.now(), 
+                uid: user.uid,
+                exercise: exercixeId
+            };
+            if(reply){
+                m.replyTo = replyTo.timestamp;
+            }
+            AuthService.getDatabase().ref('chats').push(m).then(()=>{
+                setContent("");
+                setReply(false);
+                setReplyTo(null);
+            });
         }
-        AuthService.getDatabase().ref('chats').push(m).then(()=>{
-            setContent("");
-            setReply(false);
-            setReplyTo(null);
-        });
     }
 
     const handleChange = (event)=>{

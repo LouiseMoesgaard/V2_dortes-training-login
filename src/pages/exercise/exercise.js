@@ -47,7 +47,9 @@ function Exercise({match: { params: { exercise_id } }, user}) {
         setTrigger(true);
     }
 
-    const haveExercise = ()=> user.exercise && user.exercises.includes(parseInt(exercise_id))
+    const haveExercise = ()=> {
+        return user.exercises && user.exercises.includes(parseInt(exercise_id))
+    }
 
     const removeSaved = () => {
         setTrigger(false);
@@ -63,7 +65,6 @@ function Exercise({match: { params: { exercise_id } }, user}) {
     }
 
     const btnAction = ()=>{
-        console.log("got here")
         if(haveExercise()){
             removeSaved();
         }else{
@@ -82,15 +83,15 @@ function Exercise({match: { params: { exercise_id } }, user}) {
             <Breadcrumbs routes={routes}/>
             <div className="d-grid">
                 <Header title={exercise.title}/>
-                {trigger?<Notifier notice="favorit er nu gemt" duration={4500}></Notifier>: null}
-                {trigger === false?<Notifier notice="favorit er nu slettet" duration={4500}></Notifier>: null}
+                {trigger?<Notifier notice="Favorit er nu gemt" duration={2500}></Notifier>: null}
+                {trigger === false?<Notifier notice="Favorit er nu slettet" duration={2500}></Notifier>: null}
                 <Button value={haveExercise() ? 'Slet' : 'Gem'} onClick={()=>btnAction()}></Button>
             </div>
 
             <div className="bluebox d-grid">
                 <img className="excerciseGuideImg" src={exercise.guide_img}/>
                 <div>
-                <Header title={exercise.title}/>
+                <Header title={"Øvelsesvejledning"}/>
                 <div className="excerciseGuideText" dangerouslySetInnerHTML={ { __html: exercise.guide } }></div>
                 </div>
             </div>

@@ -27,6 +27,11 @@ function Navigation(props) {
         setIsMobile(Responsiveness.isMobile())
     }
 
+    const signOut = ()=>{
+        AuthService.doSignOut(); 
+        window.location.href = '/';
+    }
+
 
 
     return (
@@ -46,7 +51,7 @@ function Navigation(props) {
                 <div className={`menu ${menuHidden && isMobile ? "hide" : ""} ${!isMobile? 'desktop' : ''}`}>
                         <NavLink to="/categories" activeClassName="active">Kategorioversigt</NavLink>
                         <NavLink to="/saved" activeClassName="active">Gemte øvelser</NavLink>
-                        <Button className="link" value="Log ud" onClick={()=>AuthService.doSignOut()}/>
+                        <Button className="link" value="Log ud" onClick={()=>signOut()}/>
                         <Button className="icon" icon={gear} onClick={()=>setSettingsOpen(true)}></Button>
                 </div>
 

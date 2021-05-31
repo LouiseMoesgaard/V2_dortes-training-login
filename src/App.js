@@ -18,6 +18,7 @@ function App() {
   const [user, setUser] = React.useState(null);
   const [uid, setUid] = React.useState(null);
   const[newUsermail, setNewUserMail] = React.useState(null);
+  const [newuser, setNewUser] = React.useState(false);
 
   React.useEffect(()=>{
     AuthService.authHook((user)=>{
@@ -26,14 +27,19 @@ function App() {
         setNewUserMail(user.email);
       AuthService.getDatabase().ref('users').orderByChild("uid").equalTo(AuthService.currentUser().uid)
         .on("value", (snapshot)=>{
-            let user;
+            let usr;
             snapshot.forEach(function(snap) {
-                user = {
+                usr = {
                     id: snap.key,
                     ...snap.val()
                 };
-                setUser(user)
+                setUser(usr)
             });
+            if(!usr) {
+              window.location.href = "/new-user";
+            } else if (usr && window.location.pathname === '/') {
+              window.location.href = "/categories"
+            }
            
         })
       }

@@ -28,7 +28,6 @@ function Login() {
         AuthService.doSignInWithEmailAndPassword(event.target['email'].value, event.target['password'].value)
         .then(()=>{
             setLoginError(false);
-            history.push('/new-user');
         }, ()=>{
             setLoginError(true);
         })

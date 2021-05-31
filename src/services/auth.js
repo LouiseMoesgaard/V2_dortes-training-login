@@ -18,14 +18,8 @@ let currentUser = null;
 auth.onAuthStateChanged(user=> {
   if(user) {
     currentUser = user;
-    if(window.location.pathname === "/") {
-      window.location.href = "/new-user";
-    }
   } else {
       currentUser = null;
-      if(window.location.pathname !== "/") {
-        window.location.href = "/";
-      }
   } 
 });
 
