@@ -1,16 +1,21 @@
+.ExercisePage {
+  .exercise {
+    width: 100%;
+    margin: 20px auto;
+    display: block;
+  }
 
-.ExercisePage{
-    .exercise{
-        width: 100%;
-      margin: 3em auto;
-      display: block;
+  @media only screen and (max-width: 450px) {
+    .d-grid {
+      grid-template-columns: auto;
     }
+  }
 }
 
 @media only screen and (min-width: 768px) {
-    .ExercisePage{
-        .exercise{
-            width: 80%;
-        }
-    } 
+  .ExercisePage {
+    .exercise {
+      width: 80%;
+    }
+  }
 }

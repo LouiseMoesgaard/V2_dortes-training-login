@@ -44,7 +44,8 @@ function CategoryList({user}){
         filteredCategories && post?
         <div className="categoryPage">
             <Navigation/>
-            <div className="content">
+            <div className="content content-mobil">
+            <div className="mobil-box">
                 <Header title={`Velkommen til din online træning, ${user.username}`}/>
 
                 <div className="intro">
@@ -53,6 +54,8 @@ function CategoryList({user}){
                     <img src={post.billede.guid}/>
                     </div>
                 </div>
+            </div>
+             
 
                 <div className="category-container">
                     <h1>Kategorier</h1>

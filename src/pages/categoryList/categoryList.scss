@@ -28,12 +28,12 @@
     }
   }
 
-  .categories-container{
+  .categories-container {
     @include scrollbars(5px, $call-to-action-color, $bg-white);
     height: 520px;
     overflow-y: scroll;
-    button{
-      &.item{
+    button {
+      &.item {
         width: 90%;
       }
     }
@@ -42,16 +42,15 @@
   .search-container {
     width: 100%;
     margin: 5px auto;
-    
 
     input {
       padding: 10px;
       width: 100%;
       height: 40px;
-      background: #F9F8F7;
-      border: 2px solid #C6CDCD;
+      background: #f9f8f7;
+      border: 2px solid #c6cdcd;
       box-sizing: border-box;
-      &:focus-visible{
+      &:focus-visible {
         outline: $call-to-action-color;
       }
     }
@@ -69,12 +68,30 @@
     margin-top: 4vh;
     .category {
       width: 100%;
-      margin: 3em auto;
+      margin: 20px auto;
       display: block;
     }
   }
 }
 
+@media only screen and (max-width: 450px) {
+  .content-mobil {
+    padding: 0 !important;
+
+    .category-container {
+      padding: 0 $padding-inline;
+
+      button.item {
+        width: 94%;
+        margin-left: 0;
+      }
+    }
+
+    .search-container {
+      margin: 25px auto;
+    }
+  }
+}
 
 @media only screen and (min-width: 768px) {
   .categoryPage {
@@ -86,18 +103,13 @@
 
     .search-container {
       width: 40%;
-
     }
   }
-  
 }
 @media only screen and (min-width: 1024px) {
   .categoryPage {
-    
     .search-container {
       margin: 46px auto;
-
     }
   }
-  
 }
