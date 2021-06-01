@@ -51,15 +51,18 @@ function Saved({user}) {
         post && exercises?
         <div className="savedPage">
             <Navigation/>
-            <div className="content">
-                <Header title="Dine Gemte øvelser"/>
+            <div className="content content-mobil">
+                <div className="mobil-box">
+                    <Header title="Dine Gemte øvelser"/>
 
-                <div className="intro">
-                    <div className="d-grid">
-                        <div className="bluebox" dangerouslySetInnerHTML={ { __html: post.tekst } }></div>
-                        <img src={post.billede.guid}/>
+                    <div className="intro">
+                        <div className="d-grid">
+                            <div className="bluebox" dangerouslySetInnerHTML={ { __html: post.tekst } }></div>
+                            <img src={post.billede.guid}/>
+                        </div>
                     </div>
                 </div>
+              
                 {exercises.length === 0?
                     <p className="noExercise">Du har ingen gemte øvelser</p>: null
                 }

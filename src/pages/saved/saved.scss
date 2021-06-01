@@ -1,71 +1,93 @@
-@import '../../styles/base.scss';
+@import "../../styles/base.scss";
 
-.savedPage { 
-    figure {
-        margin: 0;
-        height: 100%;
-        img {
-            height: 100%;
-            object-fit: cover;
-        }
+.savedPage {
+  figure {
+    margin: 0;
+    height: 100%;
+    img {
+      height: 100%;
+      object-fit: cover;
     }
-    .exerciseWrapper {
-        margin: 2rem auto;
-        .exercise{
-            width: 100%;
-        }
-        .cancel{
-            float: right;
-            margin-bottom: 30px;
-            margin-top: 0px;
-            border-color: $background-color;
-        }
+  }
+  .exerciseWrapper {
+    margin: 2rem auto;
+    .exercise {
+      width: 100%;
     }
-    
-    .noExercise {
-        width: 60%;
-        margin: 3em auto 0 auto;
-        text-align: center;
+    .cancel {
+      float: right;
+      margin-bottom: 30px;
+      margin-top: 0px;
+      border-color: $background-color;
     }
-    .ModalBody{
-        p{
-            text-align: center;
-        }
-        .buttons{
-            display: grid;
-            grid-template-columns: 50% 50%;
-            button{
-                justify-self: center;
-            }
-        }
-    }
-}
+  }
 
-@media only screen and (max-width: 450px) {
-    .savedPage .d-grid {
-        grid-template-columns: auto;
+  .noExercise {
+    width: 60%;
+    margin: 3em auto 0 auto;
+    text-align: center;
+  }
+  .ModalBody {
+    p {
+      text-align: center;
     }
+    .buttons {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      button {
+        justify-self: center;
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 768px) {
-    .savedPage{
-        .intro{
-            margin: 0;
-        }
-
-        .exerciseWrapper {
-            width: 90%;
-            margin: 3rem auto;
-            .exercise {
-                width: 70%;
-            }
-            .cancel{
-                float: right;
-                margin-bottom: 0px;
-                margin-top: 15px;
-            }
-        
-        }
+  .savedPage {
+    .intro {
+      margin: 0;
     }
-    
+
+    .exerciseWrapper {
+      width: 90%;
+      margin: 3rem auto;
+      .exercise {
+        width: 70%;
+      }
+      .cancel {
+        float: right;
+        margin-bottom: 0px;
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .savedPage .d-grid {
+    grid-template-columns: auto;
+  }
+
+  .content-mobil {
+    padding: 0 !important;
+
+    .mobil-box {
+      background-color: $background-color;
+      padding: 0 $padding-inline;
+    }
+
+    .header {
+      padding-top: 95px;
+      h1 {
+        color: $font-white-color;
+      }
+    }
+
+    .exerciseWrapper {
+      padding: 0 $padding-inline;
+    }
+
+    .bluebox {
+      padding: 0 30px 30px;
+    }
+  }
 }
