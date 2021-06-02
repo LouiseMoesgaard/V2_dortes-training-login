@@ -28,6 +28,7 @@ function Login() {
         AuthService.doSignInWithEmailAndPassword(event.target['email'].value, event.target['password'].value)
         .then(()=>{
             setLoginError(false);
+            window.location.href = "/";
         }, ()=>{
             setLoginError(true);
         })

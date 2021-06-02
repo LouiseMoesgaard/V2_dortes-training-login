@@ -35,7 +35,7 @@ function App() {
                 };
                 setUser(usr)
             });
-            if(!usr) {
+            if(!usr && window.location.pathname !== "/new-user") {
               window.location.href = "/new-user";
             } else if (usr && window.location.pathname === '/') {
               window.location.href = "/categories"
