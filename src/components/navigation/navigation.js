@@ -39,7 +39,7 @@ function Navigation(props) {
     return (
         <nav className={`${isMobile? 'nav-green' : 'nav-white'}`}>     
                 <div className={`logo ${!isMobile?'desktop_logo':''}`}>
-                    <img src={isMobile?logoDark:logo} alt="logo"/>
+                    <NavLink to="/kategorier"><img src={isMobile?logoDark:logo} alt="logo"/></NavLink>
                 </div>
 
                 { isMobile?
