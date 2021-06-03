@@ -25,26 +25,15 @@ auth.onAuthStateChanged(user=> {
 
  
 class AuthService {
- 
   // *** Auth API ***
-
   static getDatabase = () => db
- 
   static doSignInWithEmailAndPassword = (email, password) => 
     auth.signInWithEmailAndPassword(email, password);
-  
- 
   static doSignOut = () => auth.signOut();
-
- 
   static doPasswordReset = email => auth.sendPasswordResetEmail(email);
- 
   static doPasswordUpdate = password => auth.currentUser.updatePassword(password);
-
   static currentUser = ()=> currentUser
-
-  static authHook = (callback)=> auth.onAuthStateChanged(callback)
-  
+  static authHook = (callback)=> auth.onAuthStateChanged(callback) 
 }
  
 export default AuthService;
