@@ -51,7 +51,7 @@ function CategoryList({user}){
                 <div className="intro">
                     <div className="d-grid">
                     <div className="bluebox" dangerouslySetInnerHTML={ { __html: post.tekst } }></div>
-                    <img src={post.billede.guid}/>
+                    <img src={post.billede.guid} alt={post.billede.post_name}/>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@ function CategoryList({user}){
                 <div className="categories-container">
                     {filteredCategories.map((item, i) => {
                 return (
-                        <Link className="category" to={`/categories/${item.id}/exercises`} key={i} >
+                        <Link className="category" to={`/kategorier/${item.id}/traeninger`} key={i} >
                             <Button className="item" value={item.title}></Button>
                             <div className=""></div>
                         </Link>

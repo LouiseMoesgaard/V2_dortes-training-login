@@ -35,10 +35,10 @@ function App() {
                 };
                 setUser(usr)
             });
-            if(!usr && window.location.pathname !== "/new-user") {
-              window.location.href = "/new-user";
+            if(!usr && window.location.pathname !== "/ny-bruger") {
+              window.location.href = "/ny-bruger";
             } else if (usr && window.location.pathname === '/') {
-              window.location.href = "/categories"
+              window.location.href = "/kategorier"
             }
            
         })
@@ -53,11 +53,11 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/" component={Login} />
-          <Route exact path="/new-user" render={()=>(<NewUser user={user} uid={uid} email={newUsermail}/>)} />
-          <Route exact path="/categories" render={(props)=>(user?<CategoryList {...props} user={user}/>: null)} />
-          <Route exact path="/categories/:id/exercises" component={ExerciseList} />
-          <Route path="/categories/:id/exercises/:exercise_id" render={(props)=>(user?<Exercise {...props} user={user}/>: null)} />
-          <Route path="/saved" render={(props)=>(user?<Saved {...props} user={user}/>: null)} />
+          <Route exact path="/ny-bruger" render={()=>(<NewUser user={user} uid={uid} email={newUsermail}/>)} />
+          <Route exact path="/kategorier" render={(props)=>(user?<CategoryList {...props} user={user}/>: null)} />
+          <Route exact path="/kategorier/:id/traeninger" component={ExerciseList} />
+          <Route path="/kategorier/:id/traeninger/:exercise_id" render={(props)=>(user?<Exercise {...props} user={user}/>: null)} />
+          <Route path="/gemte" render={(props)=>(user?<Saved {...props} user={user}/>: null)} />
 
         </Switch>
       </div>

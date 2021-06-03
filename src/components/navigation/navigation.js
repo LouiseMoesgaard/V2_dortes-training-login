@@ -39,7 +39,7 @@ function Navigation(props) {
     return (
         <nav className={`${isMobile? 'nav-green' : 'nav-white'}`}>     
                 <div className={`logo ${!isMobile?'desktop_logo':''}`}>
-                    <img src={isMobile?logoDark:logo}/>
+                    <img src={isMobile?logoDark:logo} alt="logo"/>
                 </div>
 
                 { isMobile?
@@ -52,8 +52,8 @@ function Navigation(props) {
 
 
                 <div className={`menu ${menuHidden && isMobile ? "hide" : ""} ${!isMobile? 'desktop' : ''}`}>
-                        <NavLink to="/categories" activeClassName="active">Kategorioversigt</NavLink>
-                        <NavLink to="/saved" activeClassName="active">Gemte øvelser</NavLink>
+                        <NavLink to="/kategorier" activeClassName="active">Kategorioversigt</NavLink>
+                        <NavLink to="/gemte" activeClassName="active">Gemte øvelser</NavLink>
                         <Button className="link" value="Log ud" onClick={()=>signOut()}/>
                         <Button className="icon" icon={gear} onClick={()=>setSettingsOpen(true)}></Button>
                 </div>

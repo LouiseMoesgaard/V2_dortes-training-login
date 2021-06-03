@@ -23,8 +23,8 @@ function ExerciseList({ match: { params: { id } } }) {
                 exercise: category.exercise
             });
             setRoutes([
-                {href:"/categories", name:"Kategorioversigt"},
-                {href:`/categories/${category.id}/exercises`, name:`${category.title.rendered}`}
+                {href:"/kategorier", name:"Kategorioversigt"},
+                {href:`/kategorier/${category.id}/traeninger`, name:`${category.title.rendered}`}
             ])
         })
     }, [])
@@ -39,7 +39,7 @@ function ExerciseList({ match: { params: { id } } }) {
                     <Header title={category.title}></Header>
                     {category.exercise.map((item, i) => {
                         return (
-                            <Link className="exercise" to={`/categories/${category.id}/exercises/${item.id}`} key={i} >
+                            <Link className="exercise" to={`/kategorier/${category.id}/traeninger/${item.id}`} key={i} >
                                 <Button className="item" value={item.post_title}></Button>
                             </Link>
                         );

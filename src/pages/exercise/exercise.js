@@ -29,9 +29,9 @@ function Exercise({match: { params: { exercise_id } }, user}) {
                 
             });
             setRoutes([
-                {href:"/categories", name:"Kategorioversigt"},
-                {href:`/categories/${exercise.trainingtype[0].id}/exercises`, name:`${exercise.trainingtype[0].post_title}`},
-                {href:`/categories/${exercise.trainingtype[0].id}/exercises/${exercise.id}`, name:`${exercise.title.rendered}`}
+                {href:"/kategorier", name:"Kategorioversigt"},
+                {href:`/kategorier/${exercise.trainingtype[0].id}/traeninger`, name:`${exercise.trainingtype[0].post_title}`},
+                {href:`/kategorier/${exercise.trainingtype[0].id}/traeninger/${exercise.id}`, name:`${exercise.title.rendered}`}
             ])
         })
 
@@ -89,7 +89,7 @@ function Exercise({match: { params: { exercise_id } }, user}) {
             </div>
 
             <div className="bluebox d-grid">
-                <img className="excerciseGuideImg" src={exercise.guide_img}/>
+                <img className="excerciseGuideImg" src={exercise.guide_img} alt="guide image"/>
                 <div>
                 <Header title={"Øvelsesvejledning"}/>
                 <div className="excerciseGuideText" dangerouslySetInnerHTML={ { __html: exercise.guide } }></div>

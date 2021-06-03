@@ -11,6 +11,7 @@ const config = {
     messagingSenderId: "177995384003",
     appId: "1:177995384003:web:eb4b3282c3f7e67f510e76"
 };
+
 app.initializeApp(config);
 const auth = app.auth();
 const db = app.database();
