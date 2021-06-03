@@ -10,7 +10,7 @@ function NewUser({user, uid, email}) {
     React.useEffect(()=>{
         console.log(user)
         if(user) {
-            window.location.href = '/categories';
+            window.location.href = '/kategorier';
         }
     })
 
