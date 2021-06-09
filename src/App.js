@@ -10,6 +10,7 @@ import Exercise from './pages/exercise/exercise';
 import Saved from './pages/saved/saved';
 import AuthService from './services/auth';
 import NewUser from "./pages/newUser/new-user";
+import ExercisesOverview from "./pages/exercisesOverview/ExercisesOverview";
 
 
 
@@ -58,7 +59,9 @@ function App() {
           <Route exact path="/kategorier/:id/traeninger" component={ExerciseList} />
           <Route path="/kategorier/:id/traeninger/:exercise_id" render={(props)=>(user?<Exercise {...props} user={user}/>: null)} />
           <Route path="/gemte" render={(props)=>(user?<Saved {...props} user={user}/>: null)} />
-
+          <Route path="/oevelse-oversigt" render={()=> (user?<ExercisesOverview  user={user}/>: null)} />
+          {/* <Route path="/oevelse-oversigt" component={ExercisesOverview}  /> */}
+          <Route path="/oevelse-oversigt/:exercise_id" render={(props)=>(user?<Exercise {...props} user={user}/>: null)} />
         </Switch>
       </div>
     </Router> : null

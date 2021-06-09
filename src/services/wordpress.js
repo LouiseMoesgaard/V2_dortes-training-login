@@ -26,6 +26,11 @@ class Wordpress {
         return await response.json();
     }
 
+    static getAllExercises = async () => {
+        const response = await fetch(baseEndpoint + "exercise")
+        return await response.json();
+    }
+
 }
 
 export default Wordpress;

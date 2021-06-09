@@ -53,6 +53,7 @@ function Navigation(props) {
 
                 <div className={`menu ${menuHidden && isMobile ? "hide" : ""} ${!isMobile? 'desktop' : ''}`}>
                         <NavLink to="/kategorier" activeClassName="active">Kategorioversigt</NavLink>
+                        <NavLink to="/oevelse-oversigt" activeClassName="active">Øvelseoversigt</NavLink>
                         <NavLink to="/gemte" activeClassName="active">Gemte øvelser</NavLink>
                         <Button className="link" value="Log ud" onClick={()=>signOut()}/>
                         <Button className="icon" icon={gear} onClick={()=>setSettingsOpen(true)}></Button>
