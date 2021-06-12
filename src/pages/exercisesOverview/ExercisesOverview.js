@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom';
 import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
 import Loader from '../../components/loader/loader.js';
 import './exerciseOverview.scss';
+import Footer from '../../components/footer/footer.js';
 
 
 
@@ -34,6 +35,7 @@ function ExercisesOverview(){
   
     return(
     allExercises?
+    <>
       <div className="exercisesOverviewPage">
           <Navigation/>
             <div className="exercises-container">
@@ -48,7 +50,9 @@ function ExercisesOverview(){
                     })}
             </div>
 
-      </div>: <Loader/>
+      </div>
+      <Footer/>
+      </>: <Loader/>
     )
 }
 
