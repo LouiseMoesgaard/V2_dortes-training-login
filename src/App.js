@@ -59,7 +59,7 @@ function App() {
           <Route exact path="/kategorier/:id/traeninger" component={ExerciseList} />
           <Route path="/kategorier/:id/traeninger/:exercise_id" render={(props)=>(user?<Exercise {...props} user={user}/>: null)} />
           <Route path="/gemte" render={(props)=>(user?<Saved {...props} user={user}/>: null)} />
-          <Route path="/oevelse-oversigt" render={()=> (user?<ExercisesOverview  user={user}/>: null)} />
+          <Route path="/oevelse-oversigt" render={(props)=> (user?<ExercisesOverview {...props} user={user}/>: null)} />
         </Switch>
       </div>
     </Router> : null

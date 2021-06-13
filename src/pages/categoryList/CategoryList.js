@@ -60,10 +60,10 @@ function CategoryList({user}){
                 <div className="category-container">
                     <h1>Kategorier</h1>
                     <div className="search-container">
-                    <form>
-                        <input id="searchbar" className="searchbar" placeholder="Søg i kategorier" onChange={e=>doSearch(e)}/>
-                    </form>
-                </div>
+                        <form>
+                            <input id="searchbar" className="searchbar" placeholder="Søg i kategorier" onChange={e=>doSearch(e)}/>
+                        </form>
+                    </div>
                 <div className="categories-container">
                     {filteredCategories.map((item, i) => {
                 return (

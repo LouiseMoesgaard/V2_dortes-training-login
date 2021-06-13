@@ -1,5 +1,41 @@
-.exercises-container {
-  margin: 12vw 20vw;
-  display: flex;
-  flex-direction: column;
+@import "../../styles/base.scss";
+
+.exercisesOverviewPage {
+  .page_content {
+    margin: 12vw 20vw;
+
+    .search-container {
+      form {
+        display: grid;
+        grid-template-columns: 90% 10%;
+        column-gap: 6px;
+        padding-inline: 80px;
+        margin-bottom: 30px;
+
+        .searchbar {
+          border: 1px solid $border-color-grey;
+          background: #f9f8f7;
+          padding: 16px;
+          color: $font-black-color;
+          font-family: $p-font;
+          outline: none;
+
+          &:focus {
+            border: 1px solid $call-to-action-color;
+          }
+        }
+
+        .search_btn {
+          background-color: $call-to-action-color;
+          border: 1px solid $call-to-action-color;
+          color: $font-white-color;
+        }
+      }
+    }
+
+    .exercises_container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }

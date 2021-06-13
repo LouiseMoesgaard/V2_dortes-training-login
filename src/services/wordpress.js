@@ -31,6 +31,11 @@ class Wordpress {
         return await response.json();
     }
 
+    static getBodyParts = async () => {
+        const response = await fetch(baseEndpoint + "bodypart")
+        return await response.json();
+    }
+
 }
 
 export default Wordpress;
