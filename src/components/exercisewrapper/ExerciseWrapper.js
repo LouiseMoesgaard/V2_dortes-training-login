@@ -6,8 +6,6 @@ function ExerciseWrapper(props){
 
     const item = props.item;
 
-    //console.log("item is: ", item);
-
     return(
         <div className={props.className}>
             <div className="image_box">
