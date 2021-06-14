@@ -7,6 +7,7 @@ import Header from '../../components/header/header';
 import Button from '../../components/button/button.js';
 import {Link} from 'react-router-dom';
 import Loader from '../../components/loader/loader.js';
+import Footer from '../../components/footer/footer.js';
 
 
 function CategoryList({user}){
@@ -42,6 +43,7 @@ function CategoryList({user}){
 
     return(
         filteredCategories && post?
+        <>
         <div className="categoryPage">
             <Navigation/>
             <div className="content content-mobil">
@@ -80,7 +82,9 @@ function CategoryList({user}){
                    
            
             </div>
-        </div> : <Loader/>
+        </div>
+        <Footer/>
+        </> : <Loader/>
     )
 }
 

@@ -8,6 +8,7 @@ import Button from '../../components/button/button';
 import './exerciseList.scss';
 import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
 import Loader from '../../components/loader/loader';
+import Footer from '../../components/footer/footer';
 
 function ExerciseList({ match: { params: { id } } }) {
     const [category, setCategory] = React.useState(null);
@@ -32,6 +33,7 @@ function ExerciseList({ match: { params: { id } } }) {
 
     return (
         category && routes ?
+        <>
             <div className="ExercisePage">
                 <Navigation />
                 <div className="content">
@@ -46,7 +48,9 @@ function ExerciseList({ match: { params: { id } } }) {
 
                     })}
                 </div>
-            </div> : <Loader/>
+            </div>
+            <Footer/>
+            </> : <Loader/>
     );
 }
 

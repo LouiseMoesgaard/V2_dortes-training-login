@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 import Loader from '../../components/loader/loader.js';
 import './exerciseOverview.scss';
 import ExerciseWrapper from '../../components/exercisewrapper/ExerciseWrapper.js';
+import Footer from '../../components/footer/footer.js';
 
 
 
@@ -113,7 +114,9 @@ filteredList.length === 0?
             </div>
             </div>
 
-      </div>: <Loader/>
+            <Footer/>
+      </div>
+      : <Loader/>
     )
 }
 

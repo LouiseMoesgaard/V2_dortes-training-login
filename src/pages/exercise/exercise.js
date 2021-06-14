@@ -11,6 +11,7 @@ import Chat from '../../components/chat/chat';
 import Breadcrumbs from '../../components/breadcrumbs/breadcrumbs';
 import Notifier from '../../components/notifier/notifier';
 import Loader from '../../components/loader/loader';
+import Footer from '../../components/footer/footer';
 
 
 function Exercise({match: { params: { exercise_id } }, user}) {
@@ -77,6 +78,7 @@ function Exercise({match: { params: { exercise_id } }, user}) {
 
     return (
         exercise && routes?
+        <>
         <div className="ExercisePage">
             <Navigation/>
             <div className="content">
@@ -102,7 +104,9 @@ function Exercise({match: { params: { exercise_id } }, user}) {
                 <Chat exercixeId={parseInt(exercise_id)} user={user}/>
             </div>
             </div>
-        </div> : <Loader/>
+        </div>
+        <Footer/>
+        </> : <Loader/>
     );
 }
 

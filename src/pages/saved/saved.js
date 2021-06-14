@@ -9,6 +9,7 @@ import AuthService from '../../services/auth.js';
 
 import './saved.scss';
 import Loader from '../../components/loader/loader.js';
+import Footer from '../../components/footer/footer.js';
 
 
 
@@ -49,6 +50,7 @@ function Saved({user}) {
     return(
 
         post && exercises?
+        <>
         <div className="savedPage">
             <Navigation/>
             <div className="content content-mobil">
@@ -95,7 +97,9 @@ function Saved({user}) {
             </div>
             </Modal>: null
             }
-        </div> : <Loader/>
+        </div>
+        <Footer/>
+        </> : <Loader/>
 
     )
 
