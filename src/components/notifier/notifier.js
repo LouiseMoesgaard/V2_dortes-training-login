@@ -10,7 +10,7 @@ function Notifier({notice, direction, duration}){
     }
 
     return (
-        <span className={`notifier ${className} ${direction? direction: 'right'}`} onAnimationEnd={()=>outro()}>{notice}</span> : null
+        <span className={`notifier ${className} ${direction? direction: 'right'}`} onAnimationEnd={()=>outro()}>{notice}</span>
     )
 
 }
